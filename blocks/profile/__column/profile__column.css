@@ -1,0 +1,6 @@
+.profile__column {
+    padding-left: 30px;
+    align-self: center;
+    display: flex;
+    flex-wrap: wrap;
+}
