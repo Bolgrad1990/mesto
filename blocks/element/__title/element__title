@@ -1,0 +1,8 @@
+.element__title {
+    font-size: 54px;
+    font-weight: 900;
+    margin: 25px 15px 31px 21px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}

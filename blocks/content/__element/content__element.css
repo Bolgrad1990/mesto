@@ -1,0 +1,6 @@
+.content__element {
+    max-width: 282px;
+    max-height: 362px;
+    background-color: rgba(255, 255, 255, 1);
+    color: #000;
+}
