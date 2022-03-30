@@ -1,7 +1,4 @@
 .profile__button-popup {
-    background-image: url(/images/profile/button.svg);
-    background-repeat: no-repeat;
-    background-position: 50%;
     width: 24px;
     height: 24px;
     border: 1px solid #fff;
@@ -9,4 +6,9 @@
     padding: 0;
     margin-right: 210px;
     margin-top: 18px;
+    background-image: url(/images/profile/button.svg);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    cursor: pointer;
 }

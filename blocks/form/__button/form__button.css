@@ -6,8 +6,9 @@
     background-color: rgba(0, 0, 0, 1);
     color: #fff;
     display: block;
-    margin: 0 auto;
-    margin-top: 48px;
+    margin: 48px auto 0;
+    padding-bottom: 37px;
     border: none;
     border-radius: 2px;
+    padding: 0;
 }
