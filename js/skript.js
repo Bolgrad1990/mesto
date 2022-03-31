@@ -16,7 +16,14 @@ function onOverLayClick(event) {
 formWindow.addEventListener('click', onOverLayClick);
 
 const myForm = document.querySelector('.form');
+const nameInput = document.querySelector('.form__input-one');
+const aboutMeInput = document.querySelector('.form__input-two');
+const nameFull = document.querySelector('.profile__title');
+const aboutMe = document.querySelector('.profile__subtitle');
 
-function onSubmit() {
-
+function onSubmit(e) {
+    e.preventDefault();
+    nameInput.value = nameFull.textContent;
+    aboutMeInput.value = aboutMe.textContent;
 }
+myForm.addEventListener('submit', onSubmit);

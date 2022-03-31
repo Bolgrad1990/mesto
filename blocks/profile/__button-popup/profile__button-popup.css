@@ -11,4 +11,14 @@
     background-repeat: no-repeat;
     background-position: 50%;
     cursor: pointer;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 320px) {
+    .profile__button-popup {
+        margin: 0;
+        display: inline;
+        width: 18px;
+        height: 18px;
+    }
 }

@@ -6,3 +6,12 @@
     width: 310px;
     padding-top: 10px;
 }
+
+@media screen and (max-width: 320px) {
+    .profile__title {
+        font-size: 27px;
+        width: 189px;
+        margin: 0 10px 0 46px;
+        padding-top: 2px;
+    }
+}

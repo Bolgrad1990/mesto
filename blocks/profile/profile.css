@@ -2,3 +2,14 @@
     display: grid;
     grid-template-columns: 120px 1fr 150px;
 }
+
+@media screen and (max-width: 320px) {
+    .profile {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        width: 282px;
+        height: 286px;
+        margin: 42px 19px 0px;
+        box-sizing: border-box;
+    }
+}

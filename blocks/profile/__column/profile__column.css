@@ -4,3 +4,10 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+@media screen and (max-width: 320px) {
+    .profile__column {
+        padding: 0;
+        margin-bottom: 4px;
+    }
+}

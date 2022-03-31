@@ -1,5 +1,5 @@
 .profile__button-add {
-    max-width: 150px;
+    width: 150px;
     height: 50px;
     border: 1px solid #fff;
     background-image: url(/images/profile/cross.svg);
@@ -7,4 +7,12 @@
     background-position: 50%;
     align-self: center;
     cursor: pointer;
+}
+
+@media screen and (max-width: 320px) {
+    .profile__button-add {
+        width: 282px;
+        box-sizing: border-box;
+        background-size: 5%;
+    }
 }

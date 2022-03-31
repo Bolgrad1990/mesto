@@ -7,3 +7,10 @@
     display: flex;
     align-items: center;
 }
+
+@media screen and (max-width: 320px) {
+    .footer {
+        font-size: 14px;
+        height: 98px;
+    }
+}

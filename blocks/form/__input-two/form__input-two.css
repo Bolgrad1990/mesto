@@ -1,0 +1,25 @@
+.form__input-two {
+    width: 358px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    display: block;
+    margin: 0 auto;
+    padding-top: 30px;
+    color: rgba(0, 0, 0, 1);
+    font-size: 14px;
+    font-weight: 400;
+    padding-bottom: 13px;
+}
+
+.form__input-two:active,
+ :hover,
+ :focus {
+    outline: 0;
+    outline-offset: 0;
+}
+
+@media screen and (max-width: 320px) {
+    .form__input-two {
+        width: 238px;
+    }
+}
