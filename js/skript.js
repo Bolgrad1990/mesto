@@ -14,3 +14,9 @@ function onOverLayClick(event) {
     }
 }
 formWindow.addEventListener('click', onOverLayClick);
+
+const myForm = document.querySelector('.form');
+
+function onSubmit() {
+
+}
