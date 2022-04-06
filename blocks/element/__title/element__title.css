@@ -1,8 +1,19 @@
 .element__title {
+    max-width: 246px;
     font-size: 24px;
     font-weight: 900;
-    margin: 25px 15px 31px 21px;
+    /*margin: 25px 15px 31px 21px;*/
+    margin: 0 auto;
+    margin-top: 25px;
+    margin-bottom: 31px;
+    padding: 0;
     display: flex;
-    flex-wrap: wrap;
+    /*flex-wrap: wrap;*/
     justify-content: space-between;
+}
+
+@media screen and (max-width: 320px) {
+    .element__title {
+        max-width: 246px;
+    }
 }

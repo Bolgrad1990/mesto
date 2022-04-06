@@ -1,4 +1,4 @@
-.form__input-two {
+.form__input-job {
     width: 358px;
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -11,7 +11,7 @@
     padding-bottom: 13px;
 }
 
-.form__input-two:active,
+.form__input-job:active,
  :hover,
  :focus {
     outline: 0;
@@ -19,7 +19,7 @@
 }
 
 @media screen and (max-width: 320px) {
-    .form__input-two {
+    .form__input-job {
         width: 238px;
     }
 }

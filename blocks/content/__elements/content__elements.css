@@ -7,6 +7,14 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr 1fr;
     gap: 20px 17px;
+    object-fit: cover;
+    justify-items: center;
+}
+
+@media screen and (max-width: 768px) {
+    .content__elements {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 @media screen and (max-width: 320px) {

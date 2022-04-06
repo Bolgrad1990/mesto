@@ -1,3 +1,4 @@
+"use strict";
 const aboutProjektLink = document.querySelector('.profile__button-popup');
 const formWindow = document.querySelector('.popup');
 const formClose = formWindow.querySelector('.popup__close');
@@ -16,8 +17,8 @@ function onOverLayClick(event) {
 formWindow.addEventListener('click', onOverLayClick);
 
 const myForm = document.querySelector('.form');
-const nameInput = document.querySelector('.form__input-one');
-const aboutMeInput = document.querySelector('.form__input-two');
+const nameInput = document.querySelector('.form__input-name');
+const aboutMeInput = document.querySelector('.form__input-job');
 const nameFull = document.querySelector('.profile__title');
 const aboutMe = document.querySelector('.profile__subtitle');
 
