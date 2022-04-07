@@ -7,7 +7,7 @@
     color: #fff;
     display: block;
     margin: 48px auto 0;
-    padding-bottom: 37px;
+    margin-bottom: 37px;
     border: none;
     border-radius: 2px;
     padding: 0;
@@ -22,5 +22,6 @@
     .form__button {
         font-size: 14px;
         width: 238px;
+        margin-bottom: 25px;
     }
 }

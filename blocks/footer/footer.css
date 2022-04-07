@@ -1,5 +1,5 @@
 .footer {
-    height: 144px;
+    /*height: 144px;*/
     font-size: 18px;
     line-height: 1.78;
     font-weight: 400;
@@ -10,9 +10,8 @@
 
 @media screen and (max-width: 320px) {
     .footer {
-        margin-top: 350px;
         margin-left: 19px;
         font-size: 14px;
-        height: 98px;
+        /*height: 98px;*/
     }
 }
