@@ -1,4 +1,4 @@
-.popup__close {
+.form__close {
     width: 32px;
     height: 32px;
     margin: 0;
@@ -12,12 +12,12 @@
     cursor: pointer;
 }
 
-.popup__close:hover {
+.form__close:hover {
     opacity: 60%;
 }
 
 @media screen and (max-width: 320px) {
-    .popup__close {
+    .form__close {
         width: 20px;
         height: 20px;
         right: 0;
