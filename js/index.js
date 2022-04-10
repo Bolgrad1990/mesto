@@ -1,7 +1,7 @@
 "use strict";
 const aboutProjektLink = document.querySelector('.profile__button-popup');
 const formWindow = document.querySelector('.popup');
-const formClose = formWindow.querySelector('.popup__close');
+const formClose = formWindow.querySelector('.form__close');
 const myForm = document.querySelector('.form');
 const nameInputForm = document.querySelector('[full-name]');
 const aboutMeInput = document.querySelector('[about-me]');
