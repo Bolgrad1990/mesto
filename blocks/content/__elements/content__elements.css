@@ -1,5 +1,5 @@
 .content__elements {
-    width: 100%;
+    max-width: 100%;
     margin: 0 auto;
     margin-top: 50px;
     display: grid;
@@ -8,11 +8,13 @@
     gap: 20px 17px;
     object-fit: cover;
     justify-items: center;
+    overflow: hidden;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 476px) {
     .content__elements {
         grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, 1fr);
     }
 }
 

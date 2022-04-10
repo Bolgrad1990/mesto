@@ -1,6 +1,6 @@
 .profile__subtitle {
     font-size: 18px;
-    line-height: 1.78;
+    line-height: 21.78px;
     font-weight: 400;
     margin: 0;
     padding-top: 5px;
@@ -9,6 +9,7 @@
 @media screen and (max-width: 320px) {
     .profile__subtitle {
         font-size: 14px;
-        margin: 0 auto;
+        line-height: 16.94px;
+        margin-left: 62px;
     }
 }

@@ -14,17 +14,17 @@
         <header class="header">
             <div class="header__logo"></div>
         </header>
-        <div class="content">
-            <div class="content__profile profile">
+        <main class="content">
+            <section class="content__profile profile">
                 <img class="profile__img" src="images/title/image.jpg" alt="Жак Кусто">
                 <div class="profile__column">
                     <h1 class="profile__title">Жак-Ив Кусто</h1>
                     <button class="profile__button-popup" type="button"></button>
                     <p class="profile__subtitle">Исследователь океана</p>
                 </div>
-                <div class="profile__button-add"></div>
-            </div>
-            <div class="content__elements">
+                <button class="profile__button-add" type="button"></button>
+            </section>
+            <section class="content__elements">
                 <div class="content__element element">
                     <img class="element__img" src="images/elements/Карачаевск.jpg" alt="Карачаевск">
                     <div class="element__title">
@@ -67,24 +67,24 @@
                         <img class="element__symbol" src="images/elements/symbol.svg" alt="сердечко">
                     </div>
                 </div>
-            </div>
-        </div>
+            </section>
+        </main>
         <footer class="footer">
             <p class="footer__text">© 2020 Mesto Russia</p>
         </footer>
         <div class="popup">
             <div class="popup__container">
-                <form class="popup__form form" action="#" method="post">
+                <form class="popup__form form" action="#" method="post" name="textForm">
                     <button class="popup__close" type="button"></button>
                     <h3 class="form__title">Редактировать профиль</h3>
-                    <input class="form__input-name" type="text" name="full-name">
-                    <input class="form__input-job" type="text" name="about-me">
+                    <input class="form__input" type="text" name="full-name">
+                    <input class="form__input" type="text" name="about-me">
                     <button class="form__button" type="submit">Сохранить</button>
                 </form>
             </div>
         </div>
     </div>
-    <script src="./js/skript.js"></script>
+    <script src="./js/index.js"></script>
 </body>
 
 </html>
