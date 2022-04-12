@@ -6,8 +6,7 @@
     background-color: rgba(0, 0, 0, 1);
     color: #fff;
     display: block;
-    margin: 42px auto 0;
-    margin-bottom: 37px;
+    margin: 42px auto 37px;
     border: none;
     border-radius: 2px;
     padding: 0;
@@ -23,5 +22,6 @@
         font-size: 14px;
         line-height: 16.94px;
         width: 238px;
+        margin: 0px auto 25px;
     }
 }

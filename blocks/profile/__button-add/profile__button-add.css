@@ -1,6 +1,7 @@
 .profile__button-add {
     width: 150px;
     height: 50px;
+    margin-left: 180px;
     border: 2px solid #fff;
     border-radius: 2px;
     background-image: url(../../../images/profile/cross.svg);
@@ -16,10 +17,17 @@
     opacity: 60%;
 }
 
+@media screen and (max-width: 767px) {
+    .profile__button-add {
+        margin: 0 auto;
+    }
+}
+
 @media screen and (max-width: 320px) {
     .profile__button-add {
         width: 282px;
         box-sizing: border-box;
         background-size: 5%;
+        margin: 0 19px;
     }
 }

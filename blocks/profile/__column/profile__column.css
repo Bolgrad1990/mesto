@@ -1,5 +1,5 @@
 .profile__column {
-    max-width: 580px;
+    max-width: 400px;
     padding-left: 30px;
     align-self: center;
     display: flex;
@@ -9,7 +9,7 @@
 @media screen and (max-width: 767px) {
     .profile__column {
         /*flex-direction: column;*/
-        margin: 0 auto;
+        margin: 0 auto 28px;
         text-align: center;
         padding-left: 0px;
     }
