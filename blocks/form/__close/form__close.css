@@ -16,7 +16,7 @@
     opacity: 60%;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 767px) {
     .form__close {
         width: 20px;
         height: 20px;

@@ -9,7 +9,7 @@
     font-size: 14px;
     line-height: 16.94px;
     font-weight: 400;
-    padding-bottom: 0px;
+    padding-bottom: 8px;
 }
 
 .form__input:active,
@@ -19,10 +19,10 @@
     outline-offset: 0;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 767px) {
     .form__input {
         width: 238px;
-        height: 27px;
+        /*height: 27px;*/
         margin-bottom: 30px;
         padding-top: 0;
     }

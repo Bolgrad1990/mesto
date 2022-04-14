@@ -20,13 +20,13 @@
 @media screen and (max-width: 767px) {
     .profile__button-popup {
         margin-right: 0;
-        margin-left: 30px;
+        margin-left: 0px;
     }
 }
 
 @media screen and (max-width: 320px) {
     .profile__button-popup {
-        margin: 2px 0 0 10px;
+        margin: 22px 0 0 10px;
         width: 18px;
         height: 18px;
     }

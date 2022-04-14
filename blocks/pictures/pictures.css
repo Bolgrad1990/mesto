@@ -8,13 +8,14 @@
     gap: 20px 17px;
     object-fit: cover;
     justify-items: center;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
-@media screen and (max-width: 476px) {
+@media screen and (max-width: 700px) {
     .pictures {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, minmax(130px, 1fr));
         grid-template-rows: repeat(3, 1fr);
+        gap: 10px 10px;
     }
 }
 
