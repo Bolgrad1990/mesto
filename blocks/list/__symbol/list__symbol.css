@@ -1,4 +1,4 @@
-/*.element__symbol {
+.list__symbol {
     background-image: url(../../../images/elements/symbol.svg);
     background-color: transparent;
     border: none;
@@ -8,12 +8,12 @@
     padding: 0;
 }
 
-.element__symbol:hover {
+.list__symbol:hover {
     opacity: 50%;
     cursor: pointer;
 }
 
-.element__symbol:active {
+.list__symbol:active {
     background-image: url(../../../images/elements/symbol_black.svg);
     opacity: 100%;
-}*/
+}

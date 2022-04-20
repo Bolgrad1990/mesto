@@ -25,57 +25,16 @@
                 <button class="profile__button-add" type="button"></button>
             </section>
             <section class="pictures">
-                <div class="pictures__element element">
-                    <img class="element__img" src="images/elements/Карачаевск.jpg" alt="Карачаевск">
-                    <div class="element__title">
-                        <h2 class="element__text">Карачаево-Черкессия</h2>
-                        <button class="element__symbol" type="button"></button>
-                    </div>
-                </div>
-                <div class="pictures__element element">
-                    <img class="element__img" src="images/elements/Домбай.jpg" alt="Домбай">
-                    <div class="element__title">
-                        <h2 class="element__text">Домбай</h2>
-                        <button class="element__symbol" type="button"></button>
-                    </div>
-                </div>
-                <div class="pictures__element element">
-                    <img class="element__img" src="images/elements/Эльбрус.jpg" alt="Эльбрус">
-                    <div class="element__title">
-                        <h2 class="element__text">Эльбрус</h2>
-                        <button class="element__symbol" type="button"></button>
-                    </div>
-                </div>
-                <div class="pictures__element element">
-                    <img class="element__img" src="images/elements/Карачаевск.jpg" alt="Карачаевск">
-                    <div class="element__title">
-                        <h2 class="element__text">Карачаевск</h2>
-                        <button class="element__symbol" type="button"></button>
-                    </div>
-                </div>
-                <div class="pictures__element element">
-                    <img class="element__img" src="images/elements/Домбай.jpg" alt="Домбай">
-                    <div class="element__title">
-                        <h2 class="element__text">Домбай</h2>
-                        <button class="element__symbol" type="button"></button>
-                    </div>
-                </div>
-                <div class="pictures__element element">
-                    <img class="element__img" src="images/elements/Эльбрус.jpg" alt="Эльбрус">
-                    <div class="element__title">
-                        <h2 class="element__text">Эльбрус</h2>
-                        <button class="element__symbol" type="button"></button>
-                    </div>
-                </div>
+                <ul class="list"></ul>
             </section>
         </main>
         <footer class="footer">
             <p class="footer__text">© 2020 Mesto Russia</p>
         </footer>
-        <div class="popup">
+        <div class="popup popup_type_edit">
             <div class="popup__container">
-                <form class="popup__form form" action="#" method="post" name="textForm">
-                    <button class="form__close" type="button"></button>
+                <form class="popup__form form" action="#" method="post" name="editForm">
+                    <button class="form__close form__close_type_edit" type="button"></button>
                     <h3 class="form__title">Редактировать профиль</h3>
                     <input class="form__input form__input_type_name" type="text" name="full-name">
                     <input class="form__input form__input_type_job" type="text" name="about-me">
@@ -83,7 +42,38 @@
                 </form>
             </div>
         </div>
+        <div class="popup popup_type_image">
+            <div class="popup__pictures-container">
+                <button class="form__close form__close_type_image" type="button"></button>
+                <figure class="popup__figure">
+                    <img class="popup__image" src="#" alt="#">
+                    <figcaption class="popup__caption"></figcaption>
+                </figure>
+            </div>
+        </div>
+        <div class="popup popup_type_cards">
+            <div class="popup__container">
+                <form class="popup__form form" action="#" method="post" name="cardsForm">
+                    <button class="form__close form__close_type_cards" type="button"></button>
+                    <h3 class="form__title">Новое место</h3>
+                    <input class="form__input form__input_type_place" type="name" name="place" placeholder="Название">
+                    <input class="form__input form__input_type_link" type="text" name="link" placeholder="Ссылка на картинку">
+                    <button class="form__button" type="submit">Создать</button>
+                </form>
+            </div>
+        </div>
+        <div class="template">
+            <li class="list__element">
+                <img class="list__img" src="#" alt="#">
+                <div class="list__title">
+                    <h2 class="list__text"></h2>
+                    <button class="list__symbol" type="button"></button>
+                    <button class="list__delete" type="button"></button>
+                </div>
+            </li>
+        </div>
     </div>
+
     <script src="./js/index.js"></script>
 </body>
 
