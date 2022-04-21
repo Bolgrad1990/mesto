@@ -43,7 +43,7 @@
             </div>
         </div>
         <div class="popup popup_type_image">
-            <div class="popup__pictures-container">
+            <div class="popup__container">
                 <button class="form__close form__close_type_image" type="button"></button>
                 <figure class="popup__figure">
                     <img class="popup__image" src="#" alt="#">
@@ -56,13 +56,13 @@
                 <form class="popup__form form" action="#" method="post" name="cardsForm">
                     <button class="form__close form__close_type_cards" type="button"></button>
                     <h3 class="form__title">Новое место</h3>
-                    <input class="form__input form__input_type_place" type="name" name="place" placeholder="Название">
+                    <input class="form__input form__input_type_place" type="text" name="place" placeholder="Название">
                     <input class="form__input form__input_type_link" type="text" name="link" placeholder="Ссылка на картинку">
                     <button class="form__button" type="submit">Создать</button>
                 </form>
             </div>
         </div>
-        <div class="template">
+        <template class="template">
             <li class="list__element">
                 <img class="list__img" src="#" alt="#">
                 <div class="list__title">
@@ -71,7 +71,7 @@
                     <button class="list__delete" type="button"></button>
                 </div>
             </li>
-        </div>
+        </template>
     </div>
 
     <script src="./js/index.js"></script>
