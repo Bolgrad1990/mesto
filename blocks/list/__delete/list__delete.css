@@ -1,10 +1,10 @@
 .list__delete {
-    background-image: url();
+    background-image: url(../../../images/elements/basket.svg);
     top: 20px;
     right: 20px;
     width: 18px;
     height: 19px;
-    bottom: none;
+    border: none;
     background-color: transparent;
     background-repeat: no-repeat;
     background-position: center;

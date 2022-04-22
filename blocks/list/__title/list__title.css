@@ -1,12 +1,10 @@
 .list__title {
-    max-width: 246px;
-    /*margin: 25px 15px 31px 21px;*/
-    margin: 0 20px;
-    /*margin-top: 25px;
-    margin-bottom: 31px;*/
-    padding-top: 20px;
-    padding-bottom: 27px;
-    display: flex;
-    /*flex-wrap: wrap;*/
-    justify-content: space-between;
+    width: 150px;
+    font-size: 24px;
+    line-height: 29.05px;
+    font-weight: 900;
+    margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }

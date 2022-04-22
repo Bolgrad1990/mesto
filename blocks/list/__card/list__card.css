@@ -1,0 +1,8 @@
+.list__card {
+    max-width: 246px;
+    margin: 0 20px;
+    padding-top: 20px;
+    padding-bottom: 27px;
+    display: flex;
+    justify-content: space-between;
+}

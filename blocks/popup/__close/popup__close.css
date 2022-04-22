@@ -1,23 +1,23 @@
-.form__close {
+.popup__close {
     width: 32px;
     height: 32px;
     margin: 0;
     padding: 0;
     position: absolute;
-    right: -40px;
-    top: -40px;
+    right: 600px;
+    top: 160px;
     background-image: url(../../../images/popup/Close_Icon.svg);
     background-color: transparent;
     border: none;
     cursor: pointer;
 }
 
-.form__close:hover {
+.popup__close:hover {
     opacity: 60%;
 }
 
 @media screen and (max-width: 767px) {
-    .form__close {
+    .popup__close {
         width: 20px;
         height: 20px;
         right: 0;
