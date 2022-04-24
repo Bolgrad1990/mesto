@@ -1,18 +1,19 @@
 .list__delete {
-   background-image: url(../../../images/elements/Group.svg);
-   top: 20px;
-   right: 20px;
-   width: 18px;
-   height: 19px;
-   border: none;
-   background-color: transparent;
-   background-repeat: no-repeat;
-   background-position: center;
-   padding: 0;
-   cursor: pointer;
-   transition: 0.5s ease;
-   position: absolute;
+    background-image: url(../../../images/elements/basket.svg);
+    top: 20px;
+    right: 20px;
+    width: 18px;
+    height: 19px;
+    border: none;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 0;
+    cursor: pointer;
+    transition: 0.5 ease;
+    position: absolute;
 }
+
 .list__delete:hover {
-   opacity: 0.6;
+    opacity: 0.6;
 }

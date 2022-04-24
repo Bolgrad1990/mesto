@@ -24,8 +24,6 @@ const initialCards = [{
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
 ];
-
-
 const aboutProjektLink = document.querySelector('.profile__button-popup');
 const cardsAddBtn = document.querySelector('.profile__button-add');
 const formElement = document.querySelector('[name="editForm"]');
@@ -34,12 +32,14 @@ const nameInputForm = document.querySelector('.form__input_type_name');
 const aboutMeInput = document.querySelector('.form__input_type_job');
 const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
+
 const modalWindowEdit = document.querySelector('.popup_type_edit');
 const modalWindowCards = document.querySelector('.popup_type_cards');
 const modalWindowImage = document.querySelector('.popup_type_image');
-const editCloseBtn = modalWindowEdit.querySelector('.form__close_type_edit');
-const cardCloseBtn = modalWindowCards.querySelector('.form__close_type_cards');
-const imageCloseBtn = modalWindowImage.querySelector('.form__close_type_image');
+
+const editCloseBtn = modalWindowEdit.querySelector('.popup__close_type_edit');
+const cardCloseBtn = modalWindowCards.querySelector('.popup__close_type_cards');
+const imageCloseBtn = modalWindowImage.querySelector('.popup__close_type_image');
 const listContainer = document.querySelector('.list');
 const template = document.querySelector('.template');
 const cardImage = document.querySelector('.popup__image');
@@ -76,7 +76,6 @@ imageCloseBtn.addEventListener('click', () => {
     closePopup(modalWindowImage);
 });
 
-
 function onSubmit(evt) {
     evt.preventDefault();
     profileTitle.textContent = nameInputForm.value;
@@ -92,7 +91,7 @@ function render() {
 
 function getElement(item) {
     const getElementTemplate = template.content.cloneNode(true);
-    const name = getElementTemplate.querySelector('.list__text');
+    const name = getElementTemplate.querySelector('.list__title');
     const link = getElementTemplate.querySelector('.list__img');
     const imageLikeBtn = getElementTemplate.querySelector('.list__symbol');
     const imageDelBtn = getElementTemplate.querySelector('.list__delete');
@@ -108,7 +107,7 @@ function getElement(item) {
     }
     imageDelBtn.addEventListener('click', removeElement);
     imageLikeBtn.addEventListener('click', function(evt) {
-        evt.target.classList.toggle('element__symbol_active')
+        evt.target.classList.toggle('list__symbol_active')
     });
 
     link.addEventListener('click', () => {
