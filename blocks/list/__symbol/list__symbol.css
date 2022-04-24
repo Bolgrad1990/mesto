@@ -13,11 +13,7 @@
     cursor: pointer;
 }
 
-<<<<<<< HEAD
-.element__symbol_active {
-=======
 .list__symbol_active {
->>>>>>> develop
     background-image: url(../../../images/elements/symbol_black.svg);
     /*opacity: 100%;*/
 }
