@@ -6,7 +6,7 @@
     background-color: rgba(0, 0, 0, 1);
     color: #fff;
     display: block;
-    margin: 42px auto 37px;
+    margin-top: 48px;
     border: none;
     border-radius: 2px;
     padding: 0;
@@ -23,6 +23,6 @@
         line-height: 16.94px;
         width: 238px;
         height: 46px;
-        margin: 0px auto 25px;
+        margin-top: 48px;
     }
 }

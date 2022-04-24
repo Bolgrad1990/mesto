@@ -24,9 +24,10 @@
                 </div>
                 <button class="profile__button-add" type="button"></button>
             </section>
-            <ul class="list">
-
-            </ul>
+            <section class="pictures">
+                <ul class="list">
+                </ul>
+            </section>
         </main>
         <footer class="footer">
             <p class="footer__text">© 2020 Mesto Russia</p>
@@ -34,8 +35,8 @@
         <div class="popup popup_type_edit">
             <div class="popup__container">
                 <button class="popup__close popup__close_type_edit" type="button"></button>
-                <form class="popup__form form" action="#" method="post" name="editForm">
-                    <h3 class="form__title">Редактировать профиль</h3>
+                <h3 class="popup__title">Редактировать профиль</h3>
+                <form class="form" action="#" method="post" name="editForm">
                     <input class="form__input form__input_type_name" type="text" name="full-name">
                     <input class="form__input form__input_type_job" type="text" name="about-me">
                     <button class="form__button" type="submit">Сохранить</button>
@@ -43,7 +44,7 @@
             </div>
         </div>
         <div class="popup popup_type_image">
-            <div class="popup__pictures-container">
+            <div class="popup__img-container">
                 <button class="popup__close popup__close_type_image" type="button"></button>
                 <figure class="popup__figure">
                     <img class="popup__image" src="#" alt="#">
@@ -54,7 +55,7 @@
         <div class="popup popup_type_cards">
             <div class="popup__container">
                 <button class="popup__close popup__close_type_cards" type="button"></button>
-                <form class="popup__form form" action="#" method="post" name="cardsForm">
+                <form class="form" action="#" method="post" name="cardsForm">
                     <h3 class="form__title">Новое место</h3>
                     <input class="form__input form__input_type_place" type="text" name="place" placeholder="Название">
                     <input class="form__input form__input_type_link" type="text" name="link" placeholder="Ссылка на картинку">
@@ -62,7 +63,7 @@
                 </form>
             </div>
         </div>
-        <tempate class="template">
+        <template class="template">
             <li class="list__element">
                 <img class="list__img" src="#" alt="#">
                 <div class="list__card">
@@ -71,7 +72,7 @@
                     <button class="list__delete" type="button"></button>
                 </div>
             </li>
-        </tempate>
+        </template>
     </div>
 
     <script src="./js/index.js"></script>

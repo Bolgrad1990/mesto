@@ -1,0 +1,8 @@
+.popup__img-container {
+    padding: 0;
+    margin: auto;
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    border: none;
+}

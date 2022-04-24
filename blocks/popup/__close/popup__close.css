@@ -4,11 +4,12 @@
     margin: 0;
     padding: 0;
     position: absolute;
-    right: 600px;
-    top: 160px;
+    top: -35px;
+    right: -35px;
     background-image: url(../../../images/popup/Close_Icon.svg);
     background-color: transparent;
     border: none;
+    transition: all 0.5s ease;
     cursor: pointer;
 }
 

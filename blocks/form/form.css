@@ -1,3 +1,16 @@
 .form {
-    /* position: relative;*/
+    width: 100%;
+    max-width: 430px;
+    background-color: #fff;
+    border-radius: 10px;
+    color: #000;
+    box-sizing: border-box;
+    margin-top: 27px;
+}
+
+@media screen and (max-width: 767px) {
+    .form {
+        max-width: 282px;
+        margin-top: 40px;
+    }
 }
