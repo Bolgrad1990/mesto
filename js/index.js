@@ -120,10 +120,11 @@ function getElement(item) {
     return getElementTemplate;
 };
 
+const placeInput = formCardsAdd.querySelector('[name="place"]').value;
+const linkInput = formCardsAdd.querySelector('[name="link"]').value;
+
 function imageFormAddSubmitHandler(evt) {
     evt.preventDefault();
-    const placeInput = formCardsAdd.querySelector('[name="place"]').value;
-    const linkInput = formCardsAdd.querySelector('[name="link"]').value;
     const element = getElement({ name: placeInput, link: linkInput });
     listContainer.prepend(element);
     closePopup(modalWindowCards);
