@@ -174,6 +174,6 @@ formClose.addEventListener('click', closeModalWindow);*/
 
 
 // Находим шаблон карточки Template и получаем его содержимое
-const cardTemplate = document.querySelector('#card-template').content;
+/*const cardTemplate = document.querySelector('#card-template').content;
 // Находим блок в котором будет использован Template
-const cardGrid = document.querySelector('.card-grid');
+const cardGrid = document.querySelector('.card-grid');*/
