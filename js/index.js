@@ -33,6 +33,7 @@ const aboutMeInput = document.querySelector('.form__input_type_job');
 const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
 
+const popups = document.querySelectorAll('.popup');
 const modalWindowEdit = document.querySelector('.popup_type_edit');
 const modalWindowCards = document.querySelector('.popup_type_cards');
 const modalWindowImage = document.querySelector('.popup_type_image');
@@ -45,14 +46,39 @@ const template = document.querySelector('.template');
 const cardImage = document.querySelector('.popup__image');
 const cardCaption = document.querySelector('.popup__caption');
 
+popups.forEach((popup) => {
+    popup.addEventListener('click', (evt) => {
+        if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close')) {
+            closePopup(popup);
+        }
+    });
+});
+
+const handleEscUp = (evt) => {
+    evt.preventDefault()
+
+    if (evt.key === 'Escape') {
+        const activePopup = document.querySelector('.popup_is-opened');
+        closePopup(activePopup);
+    };
+};
+
+function closePopup(popup) {
+    document.removeEventListener('keyup', handleEscUp);
+    popup.classList.remove('popup_is-opened');
+};
+
+
+
 
 function openPopup(modalWindowEdit) {
+    document.addEventListener('keyup', handleEscUp);
     modalWindowEdit.classList.add('popup_is-opened');
 };
 
-function closePopup(modalWindowEdit) {
+/*function closePopup(modalWindowEdit) {
     modalWindowEdit.classList.remove('popup_is-opened');
-};
+};*/
 
 
 aboutProjektLink.addEventListener('click', function() {
