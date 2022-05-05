@@ -33,14 +33,13 @@ const aboutMeInput = document.querySelector('.form__input_type_job');
 const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
 
+
 const popups = document.querySelectorAll('.popup');
 const modalWindowEdit = document.querySelector('.popup_type_edit');
 const modalWindowCards = document.querySelector('.popup_type_cards');
 const modalWindowImage = document.querySelector('.popup_type_image');
 
-const editCloseBtn = modalWindowEdit.querySelector('.popup__close_type_edit');
-const cardCloseBtn = modalWindowCards.querySelector('.popup__close_type_cards');
-const imageCloseBtn = modalWindowImage.querySelector('.popup__close_type_image');
+
 const listContainer = document.querySelector('.list');
 const template = document.querySelector('.template');
 const cardImage = document.querySelector('.popup__image');
@@ -92,15 +91,6 @@ cardsAddBtn.addEventListener('click', () => {
     openPopup(modalWindowCards);
 });
 
-editCloseBtn.addEventListener('click', () => {
-    closePopup(modalWindowEdit);
-});
-cardCloseBtn.addEventListener('click', () => {
-    closePopup(modalWindowCards);
-});
-imageCloseBtn.addEventListener('click', () => {
-    closePopup(modalWindowImage);
-});
 
 function onSubmit(evt) {
     evt.preventDefault();
@@ -146,12 +136,12 @@ function getElement(item) {
     return getElementTemplate;
 };
 
-const placeInput = formCardsAdd.querySelector('[name="place"]').value;
-const linkInput = formCardsAdd.querySelector('[name="link"]').value;
+const placeInput = formCardsAdd.querySelector('[name="place"]');
+const linkInput = formCardsAdd.querySelector('[name="link"]');
 
 function imageFormAddSubmitHandler(evt) {
     evt.preventDefault();
-    const element = getElement({ name: placeInput, link: linkInput });
+    const element = getElement({ name: placeInput.value, link: linkInput.value });
     listContainer.prepend(element);
     closePopup(modalWindowCards);
     formCardsAdd.reset();
