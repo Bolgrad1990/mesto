@@ -33,7 +33,8 @@ const aboutMeInput = document.querySelector('.form__input_type_job');
 const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
 
-
+const placeInput = formCardsAdd.querySelector('[name="place"]');
+const linkInput = formCardsAdd.querySelector('[name="link"]');
 const popups = document.querySelectorAll('.popup');
 const modalWindowEdit = document.querySelector('.popup_type_edit');
 const modalWindowCards = document.querySelector('.popup_type_cards');
@@ -75,10 +76,6 @@ function openPopup(modalWindowEdit) {
     modalWindowEdit.classList.add('popup_is-opened');
 };
 
-/*function closePopup(modalWindowEdit) {
-    modalWindowEdit.classList.remove('popup_is-opened');
-};*/
-
 
 aboutProjektLink.addEventListener('click', function() {
     /*formWindow.classList.add('popup_is-opened');*/
@@ -92,7 +89,7 @@ cardsAddBtn.addEventListener('click', () => {
 });
 
 
-function onSubmit(evt) {
+function formSubmitHandler(evt) {
     evt.preventDefault();
     profileTitle.textContent = nameInputForm.value;
     profileSubtitle.textContent = aboutMeInput.value;
@@ -101,11 +98,11 @@ function onSubmit(evt) {
 
 
 function render() {
-    const html = initialCards.map(getElement);
+    const html = initialCards.map(getCard);
     listContainer.append(...html);
 };
 
-function getElement(item) {
+function getCard(data) {
     const getElementTemplate = template.content.cloneNode(true);
     const name = getElementTemplate.querySelector('.list__title');
     const link = getElementTemplate.querySelector('.list__img');
@@ -113,9 +110,9 @@ function getElement(item) {
     const imageDelBtn = getElementTemplate.querySelector('.list__delete');
 
 
-    name.textContent = item.name;
-    link.src = item.link;
-    link.alt = item.name;
+    name.textContent = data.name;
+    link.src = data.link;
+    link.alt = data.name;
 
     function removeElement(evt) {
         const element = evt.target.closest('.list__element');
@@ -127,43 +124,27 @@ function getElement(item) {
     });
 
     link.addEventListener('click', () => {
-        cardImage.src = item.link;
-        cardCaption.alt = item.name;
-        cardCaption.textContent = item.name;
+        cardImage.src = data.link;
+        cardCaption.alt = data.name;
+        cardCaption.textContent = data.name;
         openPopup(modalWindowImage);
     });
 
     return getElementTemplate;
 };
 
-const placeInput = formCardsAdd.querySelector('[name="place"]');
-const linkInput = formCardsAdd.querySelector('[name="link"]');
+
 
 function imageFormAddSubmitHandler(evt) {
     evt.preventDefault();
-    const element = getElement({ name: placeInput.value, link: linkInput.value });
+    const element = getCard({ name: placeInput.value, link: linkInput.value });
     listContainer.prepend(element);
     closePopup(modalWindowCards);
     formCardsAdd.reset();
 
 };
 
-formElement.addEventListener('submit', onSubmit);
+formElement.addEventListener('submit', formSubmitHandler);
 formCardsAdd.addEventListener('submit', imageFormAddSubmitHandler);
 
-
 render();
-
-
-/*myForm.addEventListener('submit', onSubmit);
-formClose.addEventListener('click', closeModalWindow);*/
-
-/*function closeModalWindow() {
-    formWindow.classList.remove('popup_is-opened');
-};*/
-
-
-// Находим шаблон карточки Template и получаем его содержимое
-/*const cardTemplate = document.querySelector('#card-template').content;
-// Находим блок в котором будет использован Template
-const cardGrid = document.querySelector('.card-grid');*/
