@@ -55,7 +55,6 @@ popups.forEach((popup) => {
 });
 
 const handleEscUp = (evt) => {
-    evt.preventDefault()
 
     if (evt.key === 'Escape') {
         const activePopup = document.querySelector('.popup_is-opened');
@@ -78,7 +77,6 @@ function openPopup(modalWindowEdit) {
 
 
 aboutProjektLink.addEventListener('click', function() {
-    /*formWindow.classList.add('popup_is-opened');*/
     nameInputForm.value = profileTitle.textContent;
     aboutMeInput.value = profileSubtitle.textContent;
     openPopup(modalWindowEdit);

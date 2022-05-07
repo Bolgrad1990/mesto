@@ -2,16 +2,15 @@
 
 const showInputError = (formElement, inputElement, errorMessage, config) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-    //inputElement.classList.add('form__input_type_error');
+
     inputElement.classList.add(config.inputErrorClass);
     errorElement.textContent = errorMessage;
-    //errorElement.classList.add('form__error_visible');
+
     errorElement.classList.add(config.errorClass);
 };
 const hideInputError = (formSelector, inputElement, config) => {
     const errorElement = formSelector.querySelector(`.${inputElement.id}-error`);
-    //inputElement.classList.remove('form__input_type_error');
-    //errorElement.classList.remove('form__error_visible');
+
     inputElement.classList.remove(config.inputErrorClass);
     errorElement.classList.remove(config.errorClass);
     errorElement.textContent = '';
