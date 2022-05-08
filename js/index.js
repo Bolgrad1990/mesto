@@ -87,7 +87,7 @@ cardsAddBtn.addEventListener('click', () => {
 });
 
 
-function formSubmitHandler(evt) {
+function handleEditFormSubmi(evt) {
     evt.preventDefault();
     profileTitle.textContent = nameInputForm.value;
     profileSubtitle.textContent = aboutMeInput.value;
@@ -133,7 +133,7 @@ function getCard(data) {
 
 
 
-function imageFormAddSubmitHandler(evt) {
+function handleImageFormAddSubmit(evt) {
     evt.preventDefault();
     const element = getCard({ name: placeInput.value, link: linkInput.value });
     listContainer.prepend(element);
@@ -142,7 +142,7 @@ function imageFormAddSubmitHandler(evt) {
 
 };
 
-formElement.addEventListener('submit', formSubmitHandler);
-formCardsAdd.addEventListener('submit', imageFormAddSubmitHandler);
+formElement.addEventListener('submit', handleEditFormSubmi);
+formCardsAdd.addEventListener('submit', handleImageFormAddSubmit);
 
 render();
