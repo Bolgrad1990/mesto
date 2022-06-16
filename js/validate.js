@@ -77,3 +77,4 @@ enableValidation({
     inputErrorClass: 'form__input_type_error',
     errorClass: 'form__error_visible'
 });
+/* Спросить - верно ли ключ: значение?*/
