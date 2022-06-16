@@ -36,6 +36,7 @@
             <div class="popup__container">
                 <button class="popup__close popup__close_type_edit" type="button"></button>
                 <h3 class="popup__title">Редактировать профиль</h3>
+
                 <form class="form" action="#" method="post" name="editForm" novalidate>
 
                     <input class="form__input form__input_type_name" id="text-input" type="text" name="full-name" required minlength="2" maxlength="40" placeholder="Имя">
@@ -61,6 +62,8 @@
             <div class="popup__container">
                 <button class="popup__close popup__close_type_cards" type="button"></button>
                 <h3 class="popup__title">Новое место</h3>
+
+
                 <form class="form" action="#" method="post" name="cardsForm" novalidate>
 
                     <input class="form__input form__input_type_place" id="place-input" type="text" name="place" placeholder="Название" required minlength="2" maxlength="30">
@@ -84,8 +87,9 @@
             </li>
         </template>
     </div>
-
-    <script type="module" src="./js/index.js"></script>
+    <script src="./js/validate.js"></script>
+    <script src="./js/index.js"></script>
+    <!--<script type="module" src="./js/index.js"></script>-->
 
 </body>
 
