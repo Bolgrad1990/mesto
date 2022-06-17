@@ -1,11 +1,11 @@
 "use strict";
+console.log(document.forms);
 
 const showInputError = (formElement, inputElement, errorMessage, config) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
 
     inputElement.classList.add(config.inputErrorClass);
     errorElement.textContent = errorMessage;
-
     errorElement.classList.add(config.errorClass);
 };
 
@@ -15,6 +15,7 @@ const hideInputError = (formSelector, inputElement, config) => {
     inputElement.classList.remove(config.inputErrorClass);
     errorElement.classList.remove(config.errorClass);
     errorElement.textContent = '';
+
 };
 
 const isValid = (formElement, inputElement, config) => {
@@ -77,4 +78,6 @@ enableValidation({
     inputErrorClass: 'form__input_type_error',
     errorClass: 'form__error_visible'
 });
+
+
 /* Спросить - верно ли ключ: значение?*/

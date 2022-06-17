@@ -145,12 +145,7 @@ formCardsAdd.addEventListener('submit', imageFormAddSubmitHandler);
 render();
 
 
-/*myForm.addEventListener('submit', onSubmit);
-formClose.addEventListener('click', closeModalWindow);*/
 
-/*function closeModalWindow() {
-    formWindow.classList.remove('popup_is-opened');
-};*/
 
 
 // Находим шаблон карточки Template и получаем его содержимое
