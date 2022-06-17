@@ -8,6 +8,7 @@
 
 @media screen and (max-width: 767px) {
     .profile__column {
+        text-align: center;
         align-items: center;
         margin: 0 auto 28px;
         padding-left: 0px;
