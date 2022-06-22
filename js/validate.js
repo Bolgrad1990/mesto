@@ -38,10 +38,13 @@ const setEventListeners = (formElement, config) => {
             toggleButtonState(inputList, buttonElement, config);
         });
     });
+    formElement.addEventListener('submit', (evt) => {
+        disabledButton(buttonElement, config);
+    });
 };
 
-function disabledButton(formElement, config) {
-    const buttonElement = formElement.querySelector(config.submitButtonSelector);
+function disabledButton(buttonElement, config) {
+    // const buttonElement = formElement.querySelector(config.submitButtonSelector);
     buttonElement.classList.add(config.inactiveButtonClass)
     buttonElement.setAttribute('disabled', 'disabled');
 }
@@ -49,9 +52,9 @@ function disabledButton(formElement, config) {
 const enableValidation = (config) => {
     const formList = Array.from(document.querySelectorAll(config.formSelector));
     formList.forEach((formElement) => {
-        formElement.addEventListener('submit', (evt) => {
-            disabledButton(formElement, config);
-        });
+        // formElement.addEventListener('submit', (evt) => {
+        //     disabledButton(buttonElement, config);
+        //  });
         setEventListeners(formElement, config);
     });
 };
@@ -63,8 +66,9 @@ const hasInvalidInput = (inputList) => {
 
 function toggleButtonState(inputList, buttonElement, config) {
     if (hasInvalidInput(inputList)) {
-        buttonElement.classList.add(config.inactiveButtonClass);
-        buttonElement.setAttribute('disabled', 'disabled');
+        disabledButton(formElement, config);
+        // buttonElement.classList.add(config.inactiveButtonClass);
+        // buttonElement.setAttribute('disabled', 'disabled');
     } else {
         buttonElement.classList.remove(config.inactiveButtonClass);
         buttonElement.removeAttribute('disabled');
