@@ -11,6 +11,8 @@
     background-repeat: no-repeat;
     background-position: 50%;
     cursor: pointer;
+    grid-column: 3;
+    align-self: flex-end;
 }
 
 .profile__button-popup:hover {
@@ -21,13 +23,16 @@
     .profile__button-popup {
         margin-right: 0;
         margin-left: 0px;
+        /*align-self: flex-start;*/
     }
 }
 
 @media screen and (max-width: 320px) {
     .profile__button-popup {
-        margin: 22px 0 0 10px;
+        /*margin: 22px 0 0 10px;*/
         width: 18px;
         height: 18px;
+        align-self: end;
+        margin: 0px 0px 5px 4px;
     }
 }

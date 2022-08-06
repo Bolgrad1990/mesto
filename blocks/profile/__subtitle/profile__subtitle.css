@@ -5,10 +5,11 @@
     line-height: 21.78px;
     font-weight: 400;
     margin: 0;
-    padding-top: 5px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    grid-column: 2;
+    align-self: center;
 }
 
 @media screen and (max-width: 767px) {
@@ -23,5 +24,6 @@
         font-size: 14px;
         line-height: 16.94px;
         padding-top: 8px;
+        margin-left: 21px;
     }
 }

@@ -11,6 +11,12 @@
     cursor: pointer;
     box-sizing: border-box;
     background-color: transparent;
+    justify-self: right;
+    /*align-content
+justify-items
+align-items
+justify-self
+align-self*/
 }
 
 .profile__button-add:hover {
@@ -19,16 +25,17 @@
 
 @media screen and (max-width: 767px) {
     .profile__button-add {
-        margin: 0 auto;
+        /* margin: 0 auto;*/
         max-width: 282px;
     }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 676px) {
     .profile__button-add {
         width: 282px;
         box-sizing: border-box;
         background-size: 5%;
-        margin: 0 19px;
+        margin: 0 auto;
+        justify-self: center;
     }
 }
