@@ -44,7 +44,6 @@ const setEventListeners = (formElement, config) => {
 };
 
 function disabledButton(buttonElement, config) {
-    // const buttonElement = formElement.querySelector(config.submitButtonSelector);
     buttonElement.classList.add(config.inactiveButtonClass)
     buttonElement.setAttribute('disabled', 'disabled');
 }
@@ -52,9 +51,6 @@ function disabledButton(buttonElement, config) {
 const enableValidation = (config) => {
     const formList = Array.from(document.querySelectorAll(config.formSelector));
     formList.forEach((formElement) => {
-        // formElement.addEventListener('submit', (evt) => {
-        //     disabledButton(buttonElement, config);
-        //  });
         setEventListeners(formElement, config);
     });
 };
@@ -64,11 +60,10 @@ const hasInvalidInput = (inputList) => {
     });
 };
 
-function toggleButtonState(inputList, formElement, config) {
+function toggleButtonState(inputList, buttonElement, config) {
     if (hasInvalidInput(inputList)) {
-        disabledButton(formElement, config);
-        // buttonElement.classList.add(config.inactiveButtonClass);
-        // buttonElement.setAttribute('disabled', 'disabled');
+        disabledButton(buttonElement, config);
+
     } else {
         buttonElement.classList.remove(config.inactiveButtonClass);
         buttonElement.removeAttribute('disabled');
@@ -82,6 +77,3 @@ enableValidation({
     inputErrorClass: 'form__input_type_error',
     errorClass: 'form__error_visible'
 });
-
-
-/* Спросить - верно ли ключ: значение?*/
