@@ -1,4 +1,4 @@
-"use strict";
+/*"use strict";
 console.log(document.forms);
 
 const showInputError = (formElement, inputElement, errorMessage, config) => {
@@ -76,4 +76,4 @@ enableValidation({
     inactiveButtonClass: 'form__button_disabled',
     inputErrorClass: 'form__input_type_error',
     errorClass: 'form__error_visible'
-});
+});*/
