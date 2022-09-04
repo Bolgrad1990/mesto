@@ -1,4 +1,7 @@
 "use strict";
+
+import { Card } from './Card.js';
+
 const initialCards = [{
         name: 'Архыз',
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -40,12 +43,14 @@ const linkInput = formCardsAdd.querySelector('[name="link"]');
 const popups = document.querySelectorAll('.popup');
 const modalWindowEdit = document.querySelector('.popup_type_edit');
 const modalWindowCards = document.querySelector('.popup_type_cards');
-const modalWindowImage = document.querySelector('.popup_type_image');
+
 
 const listContainer = document.querySelector('.list');
 const template = document.querySelector('.template');
-const cardImage = document.querySelector('.popup__image');
-const cardCaption = document.querySelector('.popup__caption');
+
+//const modalWindowImage = document.querySelector('.popup_type_image');
+//const cardImage = document.querySelector('.popup__image');
+//const cardCaption = document.querySelector('.popup__caption');
 
 popups.forEach((popup) => {
     popup.addEventListener('click', (evt) => {
@@ -143,6 +148,8 @@ formCardsAdd.addEventListener('submit', imageFormAddSubmitHandler);
 
 
 render();
+
+export { modalWindowImage, cardImage, cardCaption };
 
 
 
