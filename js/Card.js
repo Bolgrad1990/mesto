@@ -16,6 +16,7 @@ export class Card {
 
         return cardElement;
     };
+
     _leadLikeCard() {
         this._likeBtn.classList.toggle('list__toggle_active');
     }
