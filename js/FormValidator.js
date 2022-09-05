@@ -29,13 +29,15 @@ export class FormValidator {
         errorElement.textContent = '';
 
     };
+
     _isValid(inputElement) {
-        if (!inputElement.validity.valid) {
+        if (inputElement.validity.valid) {
             _showInputError(inputElement, inputElement.validationMessage);
         } else {
             _hideInputError(inputElement);
         }
     };
+
     _setEventListeners() {
         this._inputElements.forEach(inputElement => {
 
@@ -54,7 +56,7 @@ export class FormValidator {
         });
     };
 
-    _disabledButton() {
+    _disableButton() {
         this._buttonElement.classList.add(this._inactiveButtonClass)
         this._buttonElement.setAttribute('disabled', 'disabled');
     };

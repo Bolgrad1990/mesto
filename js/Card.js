@@ -3,19 +3,19 @@
 import { modalWindowImage, cardImage, cardCaption } from './index.js';
 
 export class Card {
-    constructor(title, img, cardSelector, openPopup, closePopup) {
+    constructor(title, image, cardSelector, openPopup, closePopup) {
         this._title = title;
-        this._img = img;
+        this._image = image;
         this._cardSelector = cardSelector;
         this._openPopup = openPopup;
         this._closePopup = closePopup;
     }
 
     _getTemplate() {
-        const cardElement = document.querySelector(this._cardSelector).content.querySelector('.list-element').cloneNode(true);
-
+        const cardElement = document.querySelector(this._cardSelector).content.querySelector('.list__element').cloneNode(true);
         return cardElement;
-    };
+    }
+
 
     _leadLikeCard() {
         this._likeBtn.classList.toggle('list__toggle_active');
@@ -26,7 +26,7 @@ export class Card {
     };
     _leadOpenPopup() {
         cardImage.alt = this._title;
-        cardImage.src = this._img;
+        cardImage.src = this._image;
         cardCaption.textContent = this._title;
 
         this._openPopup(modalWindowImage);
@@ -54,7 +54,7 @@ export class Card {
 
         this._element.querySelector('.list__title').textContent = this._title;
         this._cardImage.alt = this._title;
-        this._cardImage.src = this._img;
+        this._cardImage.src = this._image;
 
         return this._element;
     }
