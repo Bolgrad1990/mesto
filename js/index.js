@@ -103,19 +103,11 @@ cardsAddBtn.addEventListener('click', () => {
     openPopup(modalWindowCards);
 });
 //
-
-
-/*function formSubmitHandler(evt) {
-    evt.preventDefault();
-    profileTitle.textContent = nameInputForm.value;
-    profileSubtitle.textContent = aboutMeInput.value;
-    closePopup(modalWindowEdit);
+/*function render() {
+    const html = initialCards.map(getCard);
+    listContainer.append(...html);
 };*/
 
-//function render() {
-const html = initialCards.map(getCard);
-listContainer.append(...html);
-//};
 function handleSubmitProfileForm(evt) {
     evt.preventDefault();
     profileTitle.textContent = nameInputForm.value;
@@ -146,6 +138,17 @@ formCardsAdd.addEventListener('submit', (evt) => {
     closePopup(modalWindowAdd);
     formCardsAdd.reset();
 });
+
+render(initialCards);
+
+
+const formEditValidation = new FormValidator(config, formElement);
+formEditValidation.enableValidation();
+
+const newCardValidation = new FormValidator(config, formCardsAdd);
+newCardValidation.enableValidation();
+
+export { modalWindowImage, cardImage, cardCaption };
 
 //function getCard(data) {
 const getElementTemplate = template.content.cloneNode(true);
@@ -191,16 +194,7 @@ return getElementTemplate;
 //formCardsAdd.addEventListener('submit', imageFormAddSubmitHandler);
 
 
-render(initialCards);
 
-
-const formEditValidation = new FormValidator(config, formElement);
-formEditValidation.enableValidation();
-
-const newCardValidation = new FormValidator(config, formCardsAdd);
-newCardValidation.enableValidation();
-
-export { modalWindowImage, cardImage, cardCaption };
 
 
 
