@@ -120,7 +120,7 @@ function createCards(title, image) {
     const cardElement = card.createCard();
     return cardElement
 };
-const render = (array) => {
+const renderCards = (array) => {
     array.forEach((item) => {
         addCard(item.name, item.link);
     })
@@ -134,12 +134,12 @@ formElement.addEventListener('submit', handleSubmitProfileForm);
 
 formCardsAdd.addEventListener('submit', (evt) => {
     evt.preventDefault();
-    addCard(placeInput.value, linkInput.value)
+    addCard(placeInput.value, linkInput.value);
     closePopup(modalWindowCards);
     formCardsAdd.reset();
 });
 
-render(initialCards);
+renderCards(initialCards);
 
 
 const formEditValidation = new FormValidator(config, formElement);

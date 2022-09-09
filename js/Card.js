@@ -12,13 +12,18 @@ export class Card {
     }
 
     _getTemplate() {
-        const cardElement = document.querySelector(this._cardSelector).content.querySelector('.list__element').cloneNode(true);
+        const cardElement = document
+            .querySelector(this._cardSelector)
+            .content
+            .querySelector('.list__element')
+            .cloneNode(true);
+
         return cardElement;
     }
 
 
     _leadLikeCard() {
-        this._likeBtn.classList.toggle('list__toggle_active');
+        likeBtn.classList.toggle('list__symbol_active');
     }
     _leadDelCard() {
         this._element.remove();
@@ -33,28 +38,34 @@ export class Card {
     }
 
     _setEventListeners() {
-        this._likeBtn = this._element.querySelector('.list__symbol');
-        this._cardImage.addEventListener('click', () => {
+        // this._likeBtn = this._element.querySelector('.list__symbol');
+        // this._cardImage.addEventListener('click', () => {
+        this._element.querySelector('.list__img').addEventListener('click', () => {
             this._leadOpenPopup();
         });
 
+        // this._element.querySelector('.list__delete').addEventListener('click', () => {
         this._element.querySelector('.list__delete').addEventListener('click', () => {
             this._leadDelCard();
         });
 
-        this._likeBtn.addEventListener('click', () => {
+        //this._likeBtn.addEventListener('click', () => {
+        this._element.querySelector('.list__symbol').addEventListener('click', () => {
             this._leadLikeCard();
         });
     }
 
     createCard() {
         this._element = this._getTemplate();
-        this._cardImage = this._element.querySelector('.list__img');
+        //this._cardImage = this._element.querySelector('.list__img');
         this._setEventListeners();
 
+        //this._element.querySelector('.list__title').textContent = this._title;
+        //this._cardImage.alt = this._title;
+        //this._cardImage.src = this._image;
         this._element.querySelector('.list__title').textContent = this._title;
-        this._cardImage.alt = this._title;
-        this._cardImage.src = this._image;
+        this._element.querySelector('.list__img').src = this._image;
+        this._element.querySelector('.list__img').alt = this._title;
 
         return this._element;
     }
