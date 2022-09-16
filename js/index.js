@@ -103,10 +103,7 @@ cardsAddBtn.addEventListener('click', () => {
     openPopup(modalWindowCards);
 });
 //
-/*function render() {
-    const html = initialCards.map(getCard);
-    listContainer.append(...html);
-};*/
+
 
 function handleSubmitProfileForm(evt) {
     evt.preventDefault();
@@ -149,53 +146,3 @@ const newCardValidation = new FormValidator(config, formCardsAdd);
 newCardValidation.enableValidation();
 
 export { modalWindowImage, cardImage, cardCaption };
-
-/*function getCard(data) {
-const getElementTemplate = template.content.cloneNode(true);
-const name = getElementTemplate.querySelector('.list__title');
-const link = getElementTemplate.querySelector('.list__img');
-const imageLikeBtn = getElementTemplate.querySelector('.list__symbol');
-const imageDelBtn = getElementTemplate.querySelector('.list__delete');
-
-
-name.textContent = data.name;
-link.src = data.link;
-link.alt = data.name;
-
-function removeElement(evt) {
-    const element = evt.target.closest('.list__element');
-    element.remove();
-}
-imageDelBtn.addEventListener('click', removeElement);
-imageLikeBtn.addEventListener('click', function(evt) {
-    evt.target.classList.toggle('list__symbol_active')
-});
-
-link.addEventListener('click', () => {
-    cardImage.src = data.link;
-    cardCaption.alt = data.name;
-    cardCaption.textContent = data.name;
-    openPopup(modalWindowImage);
-});
-
-return getElementTemplate;
-//};
-
-/*function imageFormAddSubmitHandler(evt) {
-    evt.preventDefault();
-    const element = getCard({ name: placeInput.value, link: linkInput.value });
-    listContainer.prepend(element);
-    closePopup(modalWindowCards);
-    formCardsAdd.reset();
-
-};*/
-
-//formElement.addEventListener('submit', formSubmitHandler);
-//formCardsAdd.addEventListener('submit', imageFormAddSubmitHandler);
-
-
-
-// Находим шаблон карточки Template и получаем его содержимое
-/*const cardTemplate = document.querySelector('#card-template').content;
-// Находим блок в котором будет использован Template
-const cardGrid = document.querySelector('.card-grid');*/

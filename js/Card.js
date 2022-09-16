@@ -21,7 +21,6 @@ export class Card {
         return cardElement;
     }
 
-
     _leadLikeCard() {
         const likeBtn = document.querySelector('.list__symbol');
         likeBtn.classList.toggle('list__symbol_active');
@@ -39,18 +38,14 @@ export class Card {
     }
 
     _setEventListeners() {
-        // this._likeBtn = this._element.querySelector('.list__symbol');
-        // this._cardImage.addEventListener('click', () => {
         this._element.querySelector('.list__img').addEventListener('click', () => {
             this._leadOpenPopup();
         });
 
-        // this._element.querySelector('.list__delete').addEventListener('click', () => {
         this._element.querySelector('.list__delete').addEventListener('click', () => {
             this._leadDelCard();
         });
 
-        //this._likeBtn.addEventListener('click', () => {
         this._element.querySelector('.list__symbol').addEventListener('click', () => {
             this._leadLikeCard();
         });
@@ -58,12 +53,9 @@ export class Card {
 
     createCard() {
         this._element = this._getTemplate();
-        //this._cardImage = this._element.querySelector('.list__img');
+
         this._setEventListeners();
 
-        //this._element.querySelector('.list__title').textContent = this._title;
-        //this._cardImage.alt = this._title;
-        //this._cardImage.src = this._image;
         this._element.querySelector('.list__title').textContent = this._title;
         this._element.querySelector('.list__img').src = this._image;
         this._element.querySelector('.list__img').alt = this._title;
