@@ -23,6 +23,7 @@ export class Card {
 
 
     _leadLikeCard() {
+        const likeBtn = document.querySelector('.list__symbol');
         likeBtn.classList.toggle('list__symbol_active');
     }
     _leadDelCard() {
