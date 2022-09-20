@@ -1,0 +1,19 @@
+{
+    "name": "mesto",
+    "version": "0.0.1",
+    "description": "* Задача\r * Работа над проектом\r * Перспектива",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Bolgrad1990/mesto.git"
+    },
+    "author": "Denis Platonov",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Bolgrad1990/mesto/issues"
+    },
+    "homepage": "https://github.com/Bolgrad1990/mesto#readme"
+}
