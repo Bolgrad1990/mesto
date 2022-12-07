@@ -45,7 +45,7 @@ export default class Card {
         })
 
 
-        this._element.querySelector('.list__symbol').addEventListener('click', () => {
+        this._element.querySelector('.list__delete').addEventListener('click', () => {
             this._leadDelCard();
         })
 
