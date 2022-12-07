@@ -62,10 +62,13 @@ showProfilePopup.setEventListeners();
 aboutProjektLink.addEventListener('click', () => {
     const info = userInfo.getUserInfo();
     addInfoFormProfile({
+
         userName: info.userName,
         aboutMe: info.aboutMe
     });
-    formEditProfileValidator.resetValidation();
+
+
+    formEditProfileValidator.restartValidation();
     showProfilePopup.open();
 });
 
@@ -92,17 +95,19 @@ const cardList = new Section({
 cardList.renderItems();
 
 const addImagePopup = new PopupWithForm({
-    popupSelector: '.popup_type_add',
+    popupSelector: '.popup_type_cards',
+
     handleSabmitProfileForm: (data) => {
         cardList.setItem(createCard(data))
         addImagePopup.close();
+
     }
 })
 addImagePopup.setEventListeners();
 
 // слушатель кнопки открытия попапа добавления новой карточки
 cardsAddBtn.addEventListener('click', () => {
-    formAddNewCardValidator.resetValidation();
+    formAddNewCardValidator.restartValidation();
     addImagePopup.open();
 });
 

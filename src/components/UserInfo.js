@@ -12,6 +12,8 @@ export default class UserInfo {
             userName: this._userName.textContent,
 
         }
+        return userInfo;
+
     }
 
     setUserInfo({ aboutMe, userName }) {
