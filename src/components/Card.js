@@ -53,7 +53,7 @@ export default class Card {
 
         this._element.querySelector('.list__title').textContent = this._name;
         this._image.src = this._link;
-        this._element.querySelector('.list__img').alt = this._name;
+        this._image.alt = this._name;
 
         return this._element;
     }

@@ -98,7 +98,7 @@ const addImagePopup = new PopupWithForm({
     popupSelector: '.popup_type_cards',
 
     handleSabmitProfileForm: (data) => {
-        console.log(data)
+
         cardsSection.setItem(createCard(data))
         addImagePopup.close();
 

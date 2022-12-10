@@ -48,7 +48,8 @@ module.exports = {
             }
         ]
     },
-    plugins: [new HtmlWebpackPlugin({ // добавьте массив
+    plugins: [
+        new HtmlWebpackPlugin({ // добавьте массив
             template: './src/pages/index.html'
         }),
         new CleanWebpackPlugin(),
