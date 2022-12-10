@@ -1,7 +1,5 @@
 "use strict";
 
-//import { modalWindowImage, cardImage, cardCaption } from '../utils/constants.js';
-
 export default class Card {
     constructor({ data, handleClickCard }, cardSelector) {
         this._name = data.name;
@@ -20,21 +18,14 @@ export default class Card {
         return cardElement;
     }
 
-    _leadLikeCard() {
-        //const likeBtn = document.querySelector('.list__symbol');
+    _handleLikeCard() {
         this._likeBtn.classList.toggle('list__symbol_active');
     }
-    _leadDelCard() {
+
+    _handleDelCard() {
         this._element.remove();
         this._element = null;
     };
-    /*_leadOpenPopup() {
-        cardImage.alt = this._title;
-        cardImage.src = this._image;
-        cardCaption.textContent = this._title;
-
-        this._leadOpenPopup(modalWindowImage);
-    }*/
 
     _setEventListeners() {
         this._likeBtn = this._element.querySelector('.list__symbol');
@@ -46,12 +37,12 @@ export default class Card {
 
 
         this._element.querySelector('.list__delete').addEventListener('click', () => {
-            this._leadDelCard();
+            this._handleDelCard();
         })
 
 
         this._likeBtn.addEventListener('click', () => {
-            this._leadLikeCard();
+            this._handleLikeCard();
         });
     }
 
@@ -61,7 +52,7 @@ export default class Card {
         this._setEventListeners();
 
         this._element.querySelector('.list__title').textContent = this._name;
-        this._element.querySelector('.list__img').src = this._link;
+        this._image.src = this._link;
         this._element.querySelector('.list__img').alt = this._name;
 
         return this._element;

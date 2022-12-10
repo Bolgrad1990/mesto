@@ -50,7 +50,8 @@ module.exports = {
     },
     plugins: [new HtmlWebpackPlugin({ // добавьте массив
             template: './src/pages/index.html'
-        }), new CleanWebpackPlugin(),
+        }),
+        new CleanWebpackPlugin(),
         new MiniCssExtractPlugin() // подключение плагина для объединения файлов
     ]
 }
