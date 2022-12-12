@@ -10,6 +10,9 @@ import PopupWithImage from '../components/PopupWithImage.js';
 import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js';
 
+import { api } from '../components/Api.js';
+api.getProfile()
+
 
 import {
     initialCards,
