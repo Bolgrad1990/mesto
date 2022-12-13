@@ -1,29 +1,72 @@
 class Api {
     constructor({ baseUrl, headers }) {
-        this.baseUrl = baseUrl
-        this.headers = headers;
+        this._baseUrl = baseUrl
+        this._headers = headers
     }
 
     getProfile() {
-        console.log('getProfile')
-        fetch(`${this.baseUrl}/users/me`, {
-            headers: this.headers
-        }).then(res => {
-            console.log('res', res)
-        })
+        //console.log('getProfile')
+        return fetch('https://mesto.nomoreparties.co/v1/cohort-54/users/me', {
+                headers: this._headers
+            })
+            .then(res => res.ok ? res.json() : Promise.reject(res.status))
+            .catch(console.log)
+            // .then(res => {
+            //     console.log('res', res)
+            // })
     }
 
     getInitialCards() {
-        // ...
+        return fetch('https://mesto.nomoreparties.co/v1/cohort-54/cards', {
+                headers: this._headers
+            })
+            .then(res => res.ok ? res.json() : Promise.reject(res.status))
+            .catch(console.log)
+
     }
+
+    getEditProfile(name, about) {
+
+        return fetch('https://mesto.nomoreparties.co/v1/cohort-54/users/me', {
+                method: 'PATCH',
+                headers: this._headers,
+                body: JSON.stringify({
+                    name: 'name',
+                    about: 'about me'
+                })
+            })
+            .then(res => res.ok ? res.json() : Promise.reject(res.status))
+            .catch(console.log)
+    }
+
+    addNewCard(name, link) {
+
+        return fetch('https://mesto.nomoreparties.co/v1/cohort-54/cards', {
+                method: 'POST',
+                headers: this._headers,
+                body: JSON.stringify({
+                    name: 'name',
+                    link: 'https://lastfm.freetls.fastly.net/i/u/ar0/cebe57a4f55e491fbbc72288a3d733ad.jpg'
+                })
+            })
+            .then(res => res.ok ? res.json() : Promise.reject(res.status))
+            .catch(console.log)
+    }
+
+
+
+
+
+
 
     // другие методы работы с API
 }
 
+
 export const api = new Api({
     headers: {
-        baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-55',
-        authorization: 'c56e30dc-2883-4270-a59e-b2f7bae969c6',
+        baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-54',
+        authorization: '8002b1c6-936e-448e-b4b8-bec58afe72bf',
         'Content-Type': 'application/json'
     }
 });

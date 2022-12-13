@@ -4,6 +4,7 @@ export default class Card {
     constructor({ data, handleClickCard }, cardSelector) {
         this._name = data.name;
         this._link = data.link;
+        this._likes = data.likes;
         this._handleClickCard = handleClickCard;
         this._cardSelector = cardSelector;
     }
@@ -46,6 +47,12 @@ export default class Card {
         });
     }
 
+
+    _setLikes() {
+        const likeCountElement = this._element.querySelector('.list__symbol-count');
+        likeCountElement.textContent = this._likes.length;
+    }
+
     createCard() {
         this._element = this._getTemplate();
         this._image = this._element.querySelector('.list__img');
@@ -54,6 +61,8 @@ export default class Card {
         this._element.querySelector('.list__title').textContent = this._name;
         this._image.src = this._link;
         this._image.alt = this._name;
+
+        this._setLikes()
 
         return this._element;
     }

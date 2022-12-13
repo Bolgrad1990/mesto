@@ -11,7 +11,31 @@ import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js';
 
 import { api } from '../components/Api.js';
+
 api.getProfile()
+    .then(res => {
+        userInfo.setUserInfo(res.name, res.about)
+    })
+
+
+api.getInitialCards()
+    .then(cardList => {
+        cardList.forEach(data => {
+            const card = createCard({
+                name: data.name,
+                link: data.link,
+                likes: data.likes
+            })
+        })
+        cardsSection.setItem()
+    })
+
+
+
+
+
+
+
 
 
 import {
@@ -35,6 +59,7 @@ import {
     cardCaption,
     config
 } from '../utils/constants.js'
+import { data } from 'autoprefixer';
 
 
 
@@ -55,7 +80,12 @@ const userInfo = new UserInfo({
 const openProfilePopup = new PopupWithForm({
     popupSelector: '.popup_type_edit',
     handleSabmitProfileForm: (data) => {
-        userInfo.setUserInfo(data);
+
+        api.getEditProfile(data)
+            .then(res => {
+                userInfo.setUserInfo(data);
+            })
+
         openProfilePopup.close();
     }
 });
@@ -75,12 +105,15 @@ aboutProjektLink.addEventListener('click', () => {
     openProfilePopup.open();
 });
 
+
+
+
 //создание новой карточки
 const createCard = (data) => {
     const card = new Card({
         data: data,
-        handleClickCard: (name, link) => {
-            popupWithImage.open({ name, link });
+        handleClickCard: (name, link, likes) => {
+            popupWithImage.open({ name, link, likes });
         }
     }, '.template');
 
@@ -89,7 +122,7 @@ const createCard = (data) => {
 }
 
 const cardsSection = new Section({
-    items: initialCards,
+    items: [],
     renderer: (item) => {
         cardsSection.setItem(createCard(item));
     },
@@ -101,13 +134,22 @@ const addImagePopup = new PopupWithForm({
     popupSelector: '.popup_type_cards',
 
     handleSabmitProfileForm: (data) => {
+        api.addNewCard()
+            .then(data => {
+                cardsSection.setItem(createCard(data))
+            })
 
-        cardsSection.setItem(createCard(data))
         addImagePopup.close();
 
+
     }
+
 })
 addImagePopup.setEventListeners();
+
+
+
+
 
 // слушатель кнопки открытия попапа добавления новой карточки
 cardsAddBtn.addEventListener('click', () => {
