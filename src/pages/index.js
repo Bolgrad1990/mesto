@@ -112,8 +112,12 @@ aboutProjektLink.addEventListener('click', () => {
 const createCard = (data) => {
     const card = new Card({
         data: data,
-        handleClickCard: (name, link, likes) => {
-            popupWithImage.open({ name, link, likes });
+        handleClickCard: (name, link) => {
+            popupWithImage.open({ name, link });
+        },
+        handleDeleteClick: () => {
+            console.log('click button');
+            confirmPopup.open()
         }
     }, '.template');
 
@@ -146,6 +150,24 @@ const addImagePopup = new PopupWithForm({
 
 })
 addImagePopup.setEventListeners();
+
+const confirmPopup = new PopupWithForm({
+    popupSelector: '.popup_type_delete-confirm',
+    /* handleSabmitProfileForm: (data) => {
+         api.addNewCard()
+             .then(data => {
+                 cardsSection.setItem(createCard(data))
+             })
+
+         addImagePopup.close();
+
+     }*/
+    handleSabmitProfileForm: () => {
+        console.log('delete!!')
+    }
+
+})
+confirmPopup.setEventListeners();
 
 
 

@@ -53,6 +53,16 @@ class Api {
             .catch(console.log)
     }
 
+    deleteCard(id) {
+
+        return fetch('https://mesto.nomoreparties.co/v1/cohort-54/cards/cardId', {
+                method: 'DELETE',
+                headers: this._headers
+            })
+            .then(res => res.ok ? res.json() : Promise.reject(res.status))
+            .catch(console.log)
+    }
+
 
 
 
