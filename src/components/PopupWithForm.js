@@ -18,6 +18,10 @@ export default class PopupWithForm extends Popup {
         return this._formValues;
     }
 
+    changeSabmitHandler(newSabmitHandler) {
+        this._handleSabmitProfileForm = newSabmitHandler;
+    }
+
     setEventListeners() {
         super.setEventListeners();
         this._popupForm.addEventListener('submit', (evt) => {

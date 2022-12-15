@@ -45,8 +45,8 @@ class Api {
                 method: 'POST',
                 headers: this._headers,
                 body: JSON.stringify({
-                    name: 'name',
-                    link: 'https://lastfm.freetls.fastly.net/i/u/ar0/cebe57a4f55e491fbbc72288a3d733ad.jpg'
+                    name: 'Italia',
+                    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
                 })
             })
             .then(res => res.ok ? res.json() : Promise.reject(res.status))
@@ -55,7 +55,7 @@ class Api {
 
     deleteCard(id) {
 
-        return fetch('https://mesto.nomoreparties.co/v1/cohort-54/cards/cardId', {
+        return fetch(`https://mesto.nomoreparties.co/v1/cohort-54/cards/${id}`, {
                 method: 'DELETE',
                 headers: this._headers
             })
@@ -69,8 +69,10 @@ class Api {
 
 
 
+
     // другие методы работы с API
 }
+
 
 
 export const api = new Api({

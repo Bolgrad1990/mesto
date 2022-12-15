@@ -5,6 +5,7 @@ export default class Card {
         this._name = data.name;
         this._link = data.link;
         this._likes = data.likes;
+        this._id = data.id
         this._handleClickCard = handleClickCard;
         this._handleDeleteClick = handleDeleteClick;
         this._cardSelector = cardSelector;
@@ -24,10 +25,10 @@ export default class Card {
         this._likeBtn.classList.toggle('list__symbol_active');
     }
 
-    /*_handleDelCard() {
+    handleDelCard() {
         this._element.remove();
         this._element = null;
-    };*/
+    };
 
     _setEventListeners() {
         this._likeBtn = this._element.querySelector('.list__symbol');
@@ -40,7 +41,7 @@ export default class Card {
 
         this._element.querySelector('.list__delete').addEventListener('click', () => {
             // this._handleDelCard();
-            this._handleDeleteClick();
+            this._handleDeleteClick(this._id);
         })
 
 

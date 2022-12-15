@@ -24,7 +24,8 @@ api.getInitialCards()
             const card = createCard({
                 name: data.name,
                 link: data.link,
-                likes: data.likes
+                likes: data.likes,
+                id: data.id
             })
         })
         cardsSection.setItem()
@@ -109,15 +110,27 @@ aboutProjektLink.addEventListener('click', () => {
 
 
 //создание новой карточки
+
 const createCard = (data) => {
     const card = new Card({
         data: data,
         handleClickCard: (name, link) => {
             popupWithImage.open({ name, link });
         },
-        handleDeleteClick: () => {
-            console.log('click button');
+
+        handleDeleteClick: (id) => {
+
             confirmPopup.open()
+            confirmPopup.changeSabmitHandler(() => {
+                confirmPopup.close();
+
+                api.deleteCard(id)
+                    .then(res => {
+                        card.handleDelCard();
+
+
+                    })
+            })
         }
     }, '.template');
 
@@ -153,17 +166,12 @@ addImagePopup.setEventListeners();
 
 const confirmPopup = new PopupWithForm({
     popupSelector: '.popup_type_delete-confirm',
-    /* handleSabmitProfileForm: (data) => {
-         api.addNewCard()
-             .then(data => {
-                 cardsSection.setItem(createCard(data))
-             })
 
-         addImagePopup.close();
-
-     }*/
     handleSabmitProfileForm: () => {
+        //confirmPopup.close();
+
         console.log('delete!!')
+
     }
 
 })
