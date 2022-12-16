@@ -1,22 +1,22 @@
-class Api {
+import { data } from "autoprefixer"
+
+export default class Api {
     constructor({ baseUrl, headers }) {
         this._baseUrl = baseUrl
         this._headers = headers
     }
 
-    getProfile() {
+    getProfile() { //////////////////////////////////////////////////////////
         //console.log('getProfile')
         return fetch('https://mesto.nomoreparties.co/v1/cohort-54/users/me', {
                 headers: this._headers
             })
             .then(res => res.ok ? res.json() : Promise.reject(res.status))
             .catch(console.log)
-            // .then(res => {
-            //     console.log('res', res)
-            // })
+
     }
 
-    getInitialCards() {
+    getInitialCards() { //////////////////////////////////////////////////////////////////////
         return fetch('https://mesto.nomoreparties.co/v1/cohort-54/cards', {
                 headers: this._headers
             })
@@ -25,37 +25,37 @@ class Api {
 
     }
 
-    getEditProfile(name, about) {
+    getEditProfile(data) { ///////////////////////////////////////////////////////// 
 
         return fetch('https://mesto.nomoreparties.co/v1/cohort-54/users/me', {
                 method: 'PATCH',
                 headers: this._headers,
                 body: JSON.stringify({
-                    name: 'name',
-                    about: 'about me'
+                    name: data.name,
+                    about: data.about
                 })
             })
             .then(res => res.ok ? res.json() : Promise.reject(res.status))
             .catch(console.log)
     }
 
-    addNewCard(name, link) {
+    addNewCard(data) { //////////////////////////////////////////////////////////////////////
 
         return fetch('https://mesto.nomoreparties.co/v1/cohort-54/cards', {
                 method: 'POST',
                 headers: this._headers,
                 body: JSON.stringify({
-                    name: 'Italia',
-                    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+                    name: data.name,
+                    link: data.link
                 })
             })
             .then(res => res.ok ? res.json() : Promise.reject(res.status))
             .catch(console.log)
     }
 
-    deleteCard(id) {
+    deleteCard(_id) { /////////////////////////////////////////////////////////////////////
 
-        return fetch(`https://mesto.nomoreparties.co/v1/cohort-54/cards/${id}`, {
+        return fetch(`https://mesto.nomoreparties.co/v1/cohort-54/cards/${_id}`, {
                 method: 'DELETE',
                 headers: this._headers
             })
@@ -63,21 +63,47 @@ class Api {
             .catch(console.log)
     }
 
+    addLikeCard(_id) { //////////////////////////////////////////////////////////////////////////
+
+        return fetch(`https://mesto.nomoreparties.co/v1/cohort-54/cards/${_id}/likes`, {
+                method: 'PUT',
+                headers: this._headers
+            })
+            .then(res => res.ok ? res.json() : Promise.reject(res.status))
+            .catch(console.log)
+    }
+    deleteLikeCard(_id) { //////////////////////////////////////////////////////////////////////////
+
+        return fetch(`https://mesto.nomoreparties.co/v1/cohort-54/cards/${_id}/likes`, {
+                method: 'DELETE',
+                headers: this._headers
+            })
+            .then(res => res.ok ? res.json() : Promise.reject(res.status))
+            .catch(console.log)
+    }
+
+    updateProfile(data) { //////////////////////////////////////////////////////////////////////////
+
+        return fetch('https://mesto.nomoreparties.co/v1/cohort-54/user/me/avatar', {
+                method: 'PATCH',
+                headers: this._headers,
+                body: JSON.stringify({
+                    avatar: data.avatar
+                })
+            })
+            .then(res => res.ok ? res.json() : Promise.reject(res.status))
+            .catch(console.log)
+    }
 
 
-
-
-
-
-
-    // другие методы работы с API
 }
 
 
 
 export const api = new Api({
+
+    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-54',
     headers: {
-        baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-54',
         authorization: '8002b1c6-936e-448e-b4b8-bec58afe72bf',
         'Content-Type': 'application/json'
     }

@@ -1,4 +1,4 @@
-"use strict";
+//"use strict";
 import './index.css';
 
 import Card from '../components/Card.js';
@@ -12,9 +12,12 @@ import UserInfo from '../components/UserInfo.js';
 
 import { api } from '../components/Api.js';
 
+let userId
+
 api.getProfile()
-    .then(res => {
-        userInfo.setUserInfo(res.name, res.about)
+    .then(data => {
+        userInfo.setUserInfo(data.userName, data.aboutMe, data.avatar)
+        userId = res._id;
     })
 
 
@@ -25,18 +28,14 @@ api.getInitialCards()
                 name: data.name,
                 link: data.link,
                 likes: data.likes,
-                id: data.id
+                id: data.id,
+                userId: userId,
+                ownerId: data.owner._id
             })
+            cardsSection.setItem(card)
         })
-        cardsSection.setItem()
+
     })
-
-
-
-
-
-
-
 
 
 import {
@@ -47,6 +46,10 @@ import {
     formCardsAdd, // ------!
     nameInputForm, // ----!
     aboutMeInput, // ------!
+    ///////////////////////////////////
+    //buttonAvatar,
+    //popupEditAvatar,
+    ///////////////////////////
     profileTitle,
     profileSubtitle,
     placeInput,
@@ -74,7 +77,8 @@ function initProfileFormValues({ userName, aboutMe }) {
 
 const userInfo = new UserInfo({
     userNameSelector: '.profile__title',
-    aboutMeSelector: '.profile__subtitle'
+    aboutMeSelector: '.profile__subtitle',
+    avatarSelector: '.profile__img'
 })
 
 //создание попапа профиля 
@@ -83,7 +87,7 @@ const openProfilePopup = new PopupWithForm({
     handleSabmitProfileForm: (data) => {
 
         api.getEditProfile(data)
-            .then(res => {
+            .then(data => {
                 userInfo.setUserInfo(data);
             })
 
@@ -108,7 +112,6 @@ aboutProjektLink.addEventListener('click', () => {
 
 
 
-
 //создание новой карточки
 
 const createCard = (data) => {
@@ -127,7 +130,6 @@ const createCard = (data) => {
                 api.deleteCard(id)
                     .then(res => {
                         card.handleDelCard();
-
 
                     })
             })
@@ -151,7 +153,8 @@ const addImagePopup = new PopupWithForm({
     popupSelector: '.popup_type_cards',
 
     handleSabmitProfileForm: (data) => {
-        api.addNewCard()
+        //console.log(data)
+        api.addNewCard(data)
             .then(data => {
                 cardsSection.setItem(createCard(data))
             })
@@ -164,22 +167,35 @@ const addImagePopup = new PopupWithForm({
 })
 addImagePopup.setEventListeners();
 
-const confirmPopup = new PopupWithForm({
-    popupSelector: '.popup_type_delete-confirm',
+const confirmPopup = new PopupWithForm({ popupSelector: '.popup_type_delete-confirm' })
 
-    handleSabmitProfileForm: () => {
-        //confirmPopup.close();
-
-        console.log('delete!!')
-
-    }
-
-})
 confirmPopup.setEventListeners();
 
 
 
 
+
+const editAvatarPopup = new PopupWithForm({
+    popupSelector: '.popup_type_avatar',
+    handleFormSubmit: (data) => {
+        editAvatarPopup.loading(true);
+
+        api.updateProfile(data)
+            .then((data) => {
+                console.log(data);
+
+                userInfo.setUserInfo(data);
+                editAvatarPopup.close();
+            })
+            .catch((err) => {
+                console.log(`Ошибка: ${err}`);
+            })
+            .finally(() => {
+                editAvatarPopup.loading(false);
+            });
+    }
+})
+editAvatarPopup.setEventListeners();
 
 // слушатель кнопки открытия попапа добавления новой карточки
 cardsAddBtn.addEventListener('click', () => {

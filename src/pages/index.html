@@ -16,7 +16,10 @@
         </header>
         <main class="content">
             <section class="profile">
-                <img class="profile__img" src="<%=require('../images/title/image.jpg')%>" alt="Жак Кусто">
+                <div class="profile__container-avatar">
+                    <button class="profile__button-avatar"></button>
+                    <img class="profile__img" src="<%=require('../images/title/image.jpg')%>" alt="Logo-avatar">
+                </div>
                 <div class="profile__column">
                     <h1 class="profile__title"></h1>
                     <button class="profile__button-popup" type="button"></button>
@@ -80,11 +83,19 @@
             <div class="popup__container">
                 <button class="popup__close popup__close_type_cards" type="button"></button>
                 <h3 class="popup__title">Вы уверены?</h3>
-
-
                 <form class="form" action="#" method="post" name="cardsForm" novalidate>
-
                     <button class="form__button" type="submit">Да</button>
+                </form>
+            </div>
+        </div>
+        <div class="popup popup_type_avatar">
+            <div class="popup__container">
+                <button class="popup__close" type="button"></button>
+                <h3 class="popup__title">Обновить аватар</h3>
+                <form class="form" name="avatarForm" novalidate>
+                    <input class="form__input " id="avatar" name="avatar" placeholder="Ссылка на аватар" required type="url">
+                    <span class="avatar-error form__error form__error_input_top"></span>
+                    <button class="form__button" type="submit">Сохранить</button>
                 </form>
             </div>
         </div>
@@ -94,7 +105,7 @@
                 <div class="list__card">
                     <h2 class="list__title"></h2>
                     <button class="list__symbol" type="button"></button>
-                    <span class="list__symbol-count"></span>
+                    <span class="list__symbol-count">0</span>
                     <button class="list__delete" type="button"></button>
                 </div>
             </li>

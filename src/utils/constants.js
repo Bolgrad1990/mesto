@@ -33,6 +33,14 @@ export const aboutMeInput = document.querySelector('.form__input_type_job');
 export const profileTitle = document.querySelector('.profile__title');
 export const profileSubtitle = document.querySelector('.profile__subtitle');
 
+//////////////////////////
+
+export const popupEditAvatar = document.querySelector('.popup_type_avatar');
+export const buttonAvatar = document.querySelector('.profile__button-avatar');
+const formAvatar = popupEditAvatar.querySelector('[name="edit-avatar"]');
+const avatar = document.querySelector('.profile__image');
+///////////////////////////////////////////////////////////////////////////
+
 
 export const placeInput = formCardsAdd.querySelector('[name="place"]');
 export const linkInput = formCardsAdd.querySelector('[name="link"]');

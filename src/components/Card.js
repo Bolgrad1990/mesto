@@ -5,7 +5,11 @@ export default class Card {
         this._name = data.name;
         this._link = data.link;
         this._likes = data.likes;
-        this._id = data.id
+
+        this._id = data.id;
+        this._userId = data.userId;
+        this._ownerId = data.ownerId;
+
         this._handleClickCard = handleClickCard;
         this._handleDeleteClick = handleDeleteClick;
         this._cardSelector = cardSelector;
@@ -66,6 +70,10 @@ export default class Card {
         this._image.alt = this._name;
 
         this._setLikes()
+
+        if (this._ownerId !== this._userId) {
+            this._element.querySelector('.list__delete').style.display = 'none';
+        }
 
         return this._element;
     }
