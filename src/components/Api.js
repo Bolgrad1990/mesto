@@ -1,102 +1,82 @@
-import { data } from "autoprefixer"
-
 export default class Api {
     constructor({ baseUrl, headers }) {
-        this._baseUrl = baseUrl
-        this._headers = headers
+        this._baseUrl = baseUrl;
+        this._headers = headers;
     }
 
-    getProfile() { //////////////////////////////////////////////////////////
-        //console.log('getProfile')
-        return fetch('https://mesto.nomoreparties.co/v1/cohort-54/users/me', {
-                headers: this._headers
-            })
-            .then(res => res.ok ? res.json() : Promise.reject(res.status))
-            .catch(console.log)
-
+    _checkResponse(res) {
+        if (res.ok) {
+            return res.json();
+        }
+        return Promise.reject(`Ошибка: ${res.status}`);
     }
 
-    getInitialCards() { //////////////////////////////////////////////////////////////////////
-        return fetch('https://mesto.nomoreparties.co/v1/cohort-54/cards', {
-                headers: this._headers
-            })
-            .then(res => res.ok ? res.json() : Promise.reject(res.status))
-            .catch(console.log)
-
+    getProfile() {
+        return fetch(`${this._baseUrl}/users/me`, {
+            headers: this._headers,
+        }).then(this._checkResponse);
     }
 
-    getEditProfile(data) { ///////////////////////////////////////////////////////// 
-
-        return fetch('https://mesto.nomoreparties.co/v1/cohort-54/users/me', {
-                method: 'PATCH',
-                headers: this._headers,
-                body: JSON.stringify({
-                    name: data.name,
-                    about: data.about
-                })
-            })
-            .then(res => res.ok ? res.json() : Promise.reject(res.status))
-            .catch(console.log)
+    getEditProfile({ name, position }) {
+        return fetch(`${this._baseUrl}/users/me`, {
+            method: "PATCH",
+            headers: this._headers,
+            body: JSON.stringify({
+                name: name,
+                about: position,
+            }),
+        }).then(this._checkResponse);
     }
 
-    addNewCard(data) { //////////////////////////////////////////////////////////////////////
-
-        return fetch('https://mesto.nomoreparties.co/v1/cohort-54/cards', {
-                method: 'POST',
-                headers: this._headers,
-                body: JSON.stringify({
-                    name: data.name,
-                    link: data.link
-                })
-            })
-            .then(res => res.ok ? res.json() : Promise.reject(res.status))
-            .catch(console.log)
+    updateProfile({ avatar }) {
+        return fetch(`${this._baseUrl}/users/me/avatar`, {
+            method: "PATCH",
+            headers: this._headers,
+            body: JSON.stringify({
+                avatar: avatar,
+            }),
+        }).then(this._checkResponse);
     }
 
-    deleteCard(_id) { /////////////////////////////////////////////////////////////////////
-
-        return fetch(`https://mesto.nomoreparties.co/v1/cohort-54/cards/${_id}`, {
-                method: 'DELETE',
-                headers: this._headers
-            })
-            .then(res => res.ok ? res.json() : Promise.reject(res.status))
-            .catch(console.log)
+    getInitialCards() {
+        return fetch(`${this._baseUrl}/cards`, {
+            headers: this._headers,
+        }).then(this._checkResponse);
     }
 
-    addLikeCard(_id) { //////////////////////////////////////////////////////////////////////////
-
-        return fetch(`https://mesto.nomoreparties.co/v1/cohort-54/cards/${_id}/likes`, {
-                method: 'PUT',
-                headers: this._headers
-            })
-            .then(res => res.ok ? res.json() : Promise.reject(res.status))
-            .catch(console.log)
-    }
-    deleteLikeCard(_id) { //////////////////////////////////////////////////////////////////////////
-
-        return fetch(`https://mesto.nomoreparties.co/v1/cohort-54/cards/${_id}/likes`, {
-                method: 'DELETE',
-                headers: this._headers
-            })
-            .then(res => res.ok ? res.json() : Promise.reject(res.status))
-            .catch(console.log)
+    addNewCard({ title, link }) {
+        return fetch(`${this._baseUrl}/cards`, {
+            method: "POST",
+            headers: this._headers,
+            body: JSON.stringify({
+                name: title,
+                link: link,
+            }),
+        }).then(this._checkResponse);
     }
 
-    updateProfile(data) { //////////////////////////////////////////////////////////////////////////
-
-        return fetch('https://mesto.nomoreparties.co/v1/cohort-54/user/me/avatar', {
-                method: 'PATCH',
-                headers: this._headers,
-                body: JSON.stringify({
-                    avatar: data.avatar
-                })
-            })
-            .then(res => res.ok ? res.json() : Promise.reject(res.status))
-            .catch(console.log)
+    deleteCard(id) {
+        return fetch(`${this._baseUrl}/cards/${id}`, {
+            method: "DELETE",
+            headers: this._headers,
+        }).then(this._checkResponse);
     }
 
+    addLikeCard(id) {
+        return fetch(`${this._baseUrl}/cards/${id}/likes`, {
+            method: "PUT",
+            headers: this._headers,
+        }).then(this._checkResponse);
+    }
 
+    deleteLikeCard(id) {
+        return fetch(`${this._baseUrl}/cards/${id}/likes`, {
+            method: "DELETE",
+            headers: this._headers,
+        }).then(this._checkResponse);
+    }
 }
+
 
 
 

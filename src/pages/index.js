@@ -1,4 +1,6 @@
 //"use strict";
+
+
 import './index.css';
 
 import Card from '../components/Card.js';
@@ -14,10 +16,27 @@ import { api } from '../components/Api.js';
 
 let userId
 
+/*const api = new Api({
+    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-54',
+    headers: {
+        authorization: '8002b1c6-936e-448e-b4b8-bec58afe72bf',
+        'Content-Type': 'application/json'
+    }
+})*/
+
+
+Promise.all([api.getProfile(), api.getInitialCards()])
+    .then(([me, cards]) => {
+        userId = me._id;
+        userInfo.setUserInfo(me);
+        cardsSection.renderItems(cards);
+    })
+    .catch((err) => console.log(err))
+
 api.getProfile()
     .then(data => {
         userInfo.setUserInfo(data.userName, data.aboutMe, data.avatar)
-        userId = res._id;
+        userId = res.id;
     })
 
 
@@ -63,7 +82,7 @@ import {
     cardCaption,
     config
 } from '../utils/constants.js'
-import { data } from 'autoprefixer';
+
 
 
 
