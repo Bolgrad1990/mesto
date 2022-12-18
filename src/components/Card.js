@@ -1,7 +1,5 @@
-"use strict";
-
 export default class Card {
-    constructor({ data, handleClickCard, handleDeleteClick }, cardSelector) {
+    constructor({ data, handleClickCard, handleDeleteClick, handleLikeClick }, cardSelector) {
         this._name = data.name;
         this._link = data.link;
         this._likes = data.likes;
@@ -12,6 +10,7 @@ export default class Card {
 
         this._handleClickCard = handleClickCard;
         this._handleDeleteClick = handleDeleteClick;
+        this._handleLikeClick = handleLikeClick;
         this._cardSelector = cardSelector;
     }
 
@@ -37,23 +36,18 @@ export default class Card {
     _setEventListeners() {
         this._likeBtn = this._element.querySelector('.list__symbol');
 
-
         this._image.addEventListener('click', () => {
             this._handleClickCard(this._name, this._link)
         })
 
-
         this._element.querySelector('.list__delete').addEventListener('click', () => {
-            // this._handleDelCard();
-            this._handleDeleteClick(this._id);
+            this._handleDeleteClick();
         })
-
 
         this._likeBtn.addEventListener('click', () => {
             this._handleLikeCard();
         });
     }
-
 
     _setLikes() {
         const likeCountElement = this._element.querySelector('.list__symbol-count');

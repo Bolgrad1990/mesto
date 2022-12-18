@@ -17,14 +17,11 @@ export default class Api {
         }).then(this._checkResponse);
     }
 
-    getEditProfile({ name, position }) {
+    editProfile(formData) {
         return fetch(`${this._baseUrl}/users/me`, {
             method: "PATCH",
             headers: this._headers,
-            body: JSON.stringify({
-                name: name,
-                about: position,
-            }),
+            body: JSON.stringify(formData),
         }).then(this._checkResponse);
     }
 
@@ -44,14 +41,11 @@ export default class Api {
         }).then(this._checkResponse);
     }
 
-    addNewCard({ title, link }) {
+    addNewCard(cardData) {
         return fetch(`${this._baseUrl}/cards`, {
             method: "POST",
             headers: this._headers,
-            body: JSON.stringify({
-                name: title,
-                link: link,
-            }),
+            body: JSON.stringify(cardData),
         }).then(this._checkResponse);
     }
 
@@ -76,15 +70,3 @@ export default class Api {
         }).then(this._checkResponse);
     }
 }
-
-
-
-
-export const api = new Api({
-
-    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-54',
-    headers: {
-        authorization: '8002b1c6-936e-448e-b4b8-bec58afe72bf',
-        'Content-Type': 'application/json'
-    }
-});
