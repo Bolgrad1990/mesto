@@ -1,6 +1,5 @@
 import './index.css';
 
-/
 import Card from '../components/Card.js';
 import FormValidator from '../components/FormValidator.js';
 import PopupWithForm from '../components/PopupWithForm.js';
@@ -43,6 +42,7 @@ Promise.all([api.getProfile(), api.getInitialCards()])
     .then(([me, cards]) => {
         userId = me._id;
         userInfo.setUserInfo(me);
+        console.log('cards', cards);
         cards.forEach(data => {
             const card = createCard({
                 name: data.name,
@@ -145,7 +145,7 @@ cardsAddBtn.addEventListener('click', () => {
 const createCard = (data) => {
     const card = new Card({
         data: data,
-        handleClickCard: (name, link) => {
+        handleClickCard: (name, link, ) => {
             popupWithImage.open({ name, link });
         },
         handleDeleteClick: () => {
@@ -160,7 +160,19 @@ const createCard = (data) => {
                     .catch((err) => console.log(`Ошибка: ${err}`));
             })
         },
-        handleLikeClick: () => {}
+        handleLikeClick: (id) => {
+            console.log('like');
+            api.addLikeCard(id)
+                .then(res => {
+                    card.setLikes(res.likes)
+                    console.log(res)
+                })
+            api.deleteLikeCard(id)
+                .then(res => {
+                    card.setLikes(res.likes)
+                    console.log(res)
+                })
+        }
     }, '.template');
 
     const cardElement = card.createCard();
