@@ -161,17 +161,22 @@ const createCard = (data) => {
             })
         },
         handleLikeClick: (id) => {
-            console.log('like');
-            api.addLikeCard(id)
-                .then(res => {
-                    card.setLikes(res.likes)
-                    console.log(res)
-                })
-            api.deleteLikeCard(id)
-                .then(res => {
-                    card.setLikes(res.likes)
-                    console.log(res)
-                })
+            if ((card.isLiked())) {
+                api.deleteLikeCard(id)
+                    .then(res => {
+                        card.setLikes(res.likes)
+                        console.log(res)
+                    })
+            } else {
+                console.log('like');
+                api.addLikeCard(id)
+                    .then(res => {
+                        card.setLikes(res.likes)
+                        console.log(res)
+                    })
+            }
+
+
         }
     }, '.template');
 
