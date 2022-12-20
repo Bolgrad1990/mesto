@@ -76,7 +76,7 @@ const openProfilePopup = new PopupWithForm({
                 openProfilePopup.close();
             })
             .catch((err) => console.log(`Ошибка: ${err}`))
-            .finally(() => openProfilePopup.renderLoading(false));
+            .finally(() => openProfilePopup.loading(false));
     }
 });
 openProfilePopup.setEventListeners();
