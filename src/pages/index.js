@@ -67,7 +67,7 @@ const userInfo = new UserInfo({
 //создание попапа профиля
 const openProfilePopup = new PopupWithForm({
     popupSelector: '.popup_type_edit',
-    handleSabmitProfileForm: (formData) => {
+    handleSubmitProfileForm: (formData) => {
         openProfilePopup.loading(true);
         api
             .editProfile({ name: formData.userName, about: formData.aboutMe })
@@ -92,7 +92,7 @@ aboutProjektLink.addEventListener('click', () => {
 //создание попапа редактирования аватара
 const editAvatarPopup = new PopupWithForm({
     popupSelector: '.popup_type_avatar',
-    handleSabmitProfileForm: (formData) => {
+    handleSubmitProfileForm: (formData) => {
         editAvatarPopup.loading(true);
         api
             .updateProfile(formData)
@@ -115,7 +115,8 @@ buttonAvatar.addEventListener('click', () => {
 //создание попапа добавления новой карточки
 const addImagePopup = new PopupWithForm({
     popupSelector: '.popup_type_cards',
-    handleSabmitProfileForm: (formData) => {
+    handleSubmitProfileForm: (formData) => {
+        addImagePopup.loading(true)
         api
             .addNewCard(formData)
             .then(data => {
@@ -130,7 +131,7 @@ const addImagePopup = new PopupWithForm({
                 addImagePopup.close();
             })
             .catch((err) => console.log(`Ошибка: ${err}`))
-            .finally(() => editAvatarPopup.loading(false));
+            .finally(() => addImagePopup.loading(false));
     }
 })
 addImagePopup.setEventListeners();
@@ -167,6 +168,7 @@ const createCard = (data) => {
                         card.setLikes(res.likes)
                         console.log(res)
                     })
+                    .catch((err) => console.log(`Ошибка: ${err}`));
             } else {
                 console.log('like');
                 api.addLikeCard(id)
@@ -174,6 +176,7 @@ const createCard = (data) => {
                         card.setLikes(res.likes)
                         console.log(res)
                     })
+                    .catch((err) => console.log(`Ошибка: ${err}`));
             }
 
 
