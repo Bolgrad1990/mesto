@@ -1,5 +1,5 @@
 export default class Card {
-    constructor({ data, handleClickCard, handleDeleteClick, handleLikeClick }, cardSelector) {
+    constructor({ data, handleClickCard, handleDeleteClick, handleLikeClick, likeCountElement }, cardSelector) {
         this._name = data.name;
         this._link = data.link;
         this._likes = data.likes;
@@ -11,6 +11,7 @@ export default class Card {
         this._handleClickCard = handleClickCard;
         this._handleDeleteClick = handleDeleteClick;
         this._handleLikeClick = handleLikeClick;
+        this._likeCountElement = likeCountElement
         this._cardSelector = cardSelector;
     }
 
@@ -38,7 +39,6 @@ export default class Card {
     };
 
     _setEventListeners() {
-        this._likeBtn = this._element.querySelector('.list__symbol');
 
         this._image.addEventListener('click', () => {
             this._handleClickCard(this._name, this._link)
@@ -60,8 +60,7 @@ export default class Card {
 
     setLikes(newLikes) {
         this._likes = newLikes;
-        const likeCountElement = this._element.querySelector('.list__symbol-count');
-        likeCountElement.textContent = this._likes.length;
+        this._likeCountElement.textContent = this._likes.length;
 
 
         if (this.isLiked()) {
@@ -72,6 +71,8 @@ export default class Card {
     createCard() {
         this._element = this._getTemplate();
         this._image = this._element.querySelector('.list__img');
+        this._likeBtn = this._element.querySelector('.list__symbol');
+        this._likeCountElement = this._element.querySelector('.list__symbol-count');
         this._setEventListeners();
 
         this._element.querySelector('.list__title').textContent = this._name;
@@ -80,9 +81,9 @@ export default class Card {
 
         this.setLikes(this._likes)
 
-        /*if (this._ownerId !== this._userId) {
+        if (this._ownerId !== this._userId) {
             this._element.querySelector('.list__delete').style.display = 'none';
-        }*/
+        }
 
 
         return this._element;
