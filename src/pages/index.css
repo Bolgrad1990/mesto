@@ -33,7 +33,9 @@
 @import url(../blocks/list/__img/list__img.css);
 @import url(../blocks/list/__card/list__card.css);
 @import url(../blocks/list/__title/list__title.css);
+@import url(../blocks/list/__symbol-container/list__symbol-container.css);
 @import url(../blocks/list/__symbol/list__symbol.css);
+@import url(../blocks/list/__symbol-count/list__symbol-count.css);
 @import url(../blocks/list/__delete/list__delete.css);
 
 /*            */
