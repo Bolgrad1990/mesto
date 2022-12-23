@@ -118,6 +118,7 @@ const addImagePopup = new PopupWithForm({
                     ownerId: data.owner._id
                 }));
                 addImagePopup.close();
+                console.log(data.likes)
             })
             .catch((err) => console.log(`Ошибка: ${err}`))
             .finally(() => addImagePopup.loading(false));
