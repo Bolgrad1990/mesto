@@ -42,18 +42,7 @@ Promise.all([api.getProfile(), api.getInitialCards()])
     .then(([me, cards]) => {
         userId = me._id;
         userInfo.setUserInfo(me);
-        console.log('cards', cards);
-        cards.forEach(data => {
-            const card = createCard({
-                name: data.name,
-                link: data.link,
-                likes: data.likes,
-                id: data._id,
-                userId: userId,
-                ownerId: data.owner._id
-            })
-            cardsSection.setItem(card)
-        })
+        cardsSection.renderItems(me, cards);
     })
     .catch((err) => console.log(`Ошибка: ${err}`));
 
@@ -120,7 +109,7 @@ const addImagePopup = new PopupWithForm({
         api
             .addNewCard(formData)
             .then(data => {
-                cardsSection.setItem(createCard({
+                cardsSection.setUserCard(createCard({
                     name: data.name,
                     link: data.link,
                     likes: data.likes,
