@@ -4,6 +4,10 @@ export default class Api {
         this._headers = headers;
     }
 
+    getData() {
+        return Promise.all([this.getProfile(), this.getInitialCards()]);
+    }
+
     _checkResponse(res) {
         if (res.ok) {
             return res.json();

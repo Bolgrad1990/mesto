@@ -13,10 +13,8 @@ export default class Section {
                 link: link,
                 likes: likes,
                 id: _id,
-                //userId: me.userId,
-                //ownerId: owner._id
-                userId: owner._id,
-                ownerId: me.userId
+                userId: me._userId,
+                ownerId: owner._id
             })
         })
     }
