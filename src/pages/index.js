@@ -39,8 +39,10 @@ const api = new Api({
 
 Promise.all([api.getProfile(), api.getInitialCards()])
     .then(([me, cards]) => {
+
         userInfo.setUserInfo(me);
         cardsSection.renderItems(userInfo, cards);
+        console.log(me)
     })
     .catch((err) => console.log(`Ошибка: ${err}`));
 
@@ -116,7 +118,7 @@ const addImagePopup = new PopupWithForm({
                     ownerId: data.owner._id
                 }));
                 addImagePopup.close();
-                console.log(data.likes)
+                console.log(data.owner._id)
             })
             .catch((err) => console.log(`Ошибка: ${err}`))
             .finally(() => addImagePopup.loading(false));

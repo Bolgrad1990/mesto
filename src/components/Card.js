@@ -29,14 +29,20 @@ export default class Card {
         return this._id
     }
 
-    _handleLikeCard() {
-        this._likeBtn.classList.toggle('list__symbol_active');
+    _removeLikeCard() {
+        this._likeBtn.classList.remove('list__symbol_active');
     }
+    _addLikeCard() {
+        this._likeBtn.classList.add('list__symbol_active');
+    }
+
 
     handleDelCard() {
         this._element.remove();
         this._element = null;
     };
+
+    ///////////////////////////////////////////////////////////////
 
     _setEventListeners() {
 
@@ -49,8 +55,22 @@ export default class Card {
         })
 
         this._likeBtn.addEventListener('click', () => {
-            this._handleLikeClick(this._id);
+            if (this._likeBtn.classList.contains('list__symbol_active')) {
+                this._disLike();
+            } else {
+                this._like()
+            }
+            // this._handleLikeClick(this._id);
         });
+    }
+
+    _disLike() {
+        this._removeLikeCard();
+        this._handleDeleteClick(this._likes);
+    }
+    _like() {
+        this._addLikeCard();
+        this._handleLikeClick(this._likes);
     }
 
     isLiked() {
@@ -64,7 +84,7 @@ export default class Card {
 
 
         if (this.isLiked()) {
-            this._handleLikeCard();
+            this._addLikeCard();
         }
     }
 
