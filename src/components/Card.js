@@ -60,21 +60,20 @@ export default class Card {
             } else {
                 this._like()
             }
-            // this._handleLikeClick(this._id);
         });
     }
 
     _disLike() {
         this._removeLikeCard();
-        this._handleDeleteClick(this._likes);
+        this._handleLikeClick(this._id);
     }
     _like() {
         this._addLikeCard();
-        this._handleLikeClick(this._likes);
+        this._handleLikeClick(this._id);
     }
 
     isLiked() {
-        const handleLikedCard = this._likes.find(user => user._id === this._userId);
+        const handleLikedCard = this._likes.some(user => user._id === this._userId);
         return handleLikedCard;
     }
 

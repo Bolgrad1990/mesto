@@ -5,7 +5,7 @@ export default class Section {
         this._container = document.querySelector(containerSelector);
     }
 
-    renderItems(me, cards) {
+    renderItems(userId, cards) {
         this._items = cards
         this._items.forEach(({ name, link, likes, _id, owner }) => {
             this._renderer({
@@ -13,7 +13,7 @@ export default class Section {
                 link: link,
                 likes: likes,
                 id: _id,
-                userId: me._userId,
+                userId: userId,
                 ownerId: owner._id
             })
         })

@@ -36,12 +36,12 @@ const api = new Api({
     }
 });
 
-
+let userId
 Promise.all([api.getProfile(), api.getInitialCards()])
     .then(([me, cards]) => {
-
+        userId = me._id
         userInfo.setUserInfo(me);
-        cardsSection.renderItems(userInfo, cards);
+        cardsSection.renderItems(userId, cards);
         console.log(me)
     })
     .catch((err) => console.log(`Ошибка: ${err}`));
@@ -114,7 +114,7 @@ const addImagePopup = new PopupWithForm({
                     link: data.link,
                     likes: data.likes,
                     id: data._id,
-                    userId: data.owner,
+                    userId: userId,
                     ownerId: data.owner._id
                 }));
                 addImagePopup.close();
