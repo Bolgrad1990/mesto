@@ -36,13 +36,10 @@ export default class Card {
         this._likeBtn.classList.add('list__symbol_active');
     }
 
-
     handleDelCard() {
         this._element.remove();
         this._element = null;
     };
-
-    ///////////////////////////////////////////////////////////////
 
     _setEventListeners() {
 
@@ -103,8 +100,6 @@ export default class Card {
         if (this._ownerId !== this._userId) {
             this._element.querySelector('.list__delete').style.display = 'none';
         }
-
-
         return this._element;
     }
 }
