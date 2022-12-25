@@ -135,43 +135,45 @@ cardsAddBtn.addEventListener('click', () => {
 //создание новой карточки
 const createCard = (data) => {
     const card = new Card({
-        data: data,
-        handleClickCard: (name, link) => {
-            popupWithImage.open({ name, link });
-        },
-        handleDeleteClick: () => {
-            confirmPopup.open()
-            confirmPopup.changeSabmitHandler(() => {
-                api
-                    .deleteCard(data.id)
-                    .then(() => {
-                        card.handleDelCard();
-                        confirmPopup.close();
+            data: data,
+            handleClickCard: (name, link) => {
+                popupWithImage.open({ name, link });
+            },
+            handleDeleteClick: () => {
+                confirmPopup.open()
+                confirmPopup.changeSabmitHandler(() => {
+                    api
+                        .deleteCard(data.id)
+                        .then(() => {
+                            card.handleDelCard();
+                            confirmPopup.close();
+                        })
+                        .catch((err) => console.log(`Ошибка: ${err}`));
+                })
+            },
+
+            handleLikeClick: (id) => {
+                api.addLikeCard(id)
+                    .then((res) => {
+                        card.setLikes(res.likes);
                     })
-                    .catch((err) => console.log(`Ошибка: ${err}`));
-            })
-        },
-        handleLikeClick: (id) => {
-            if ((card.isLiked())) {
+                    .catch((err) => {
+                        console.log(`Ошибка: ${err}`);
+                    });
+            },
+
+            handleDeleteClick: (id) => {
                 api.deleteLikeCard(id)
                     .then(res => {
                         card.setLikes(res.likes)
                         console.log(res)
                     })
-                    .catch((err) => console.log(`Ошибка: ${err}`));
-            } else {
-                console.log('like');
-                api.addLikeCard(id)
-                    .then(res => {
-                        card.setLikes(res.likes)
-                        console.log(res)
-                    })
-                    .catch((err) => console.log(`Ошибка: ${err}`));
+                    .catch((err) => {
+                        console.log(`Ошибка: ${err}`)
+                    });
             }
-
-
-        }
-    }, '.template');
+        },
+        '.template');
 
     const cardElement = card.createCard();
     return cardElement;
