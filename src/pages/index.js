@@ -1,5 +1,11 @@
 import './index.css';
-
+// Геннадий, доброй ночи!
+// Спасибо за Ваше терпение!
+// Признаюсь - я не в состоянии выполнить Ваше замечание. Нахожусь в командировке и просто нет элементарной возможности до конца разобраться с моей проблемой.
+// Если Вы не зачтёте мою работу - буду считать это справедливым решением.
+// На самом деле "плаваю" в материале уже давно, истатил все академы, поэтому всё закономерно.
+// Ежели посчитаете, что у меня есть шанс продолжить обучение - буду Вам благодарен
+// С уважением. Денис.
 import Card from '../components/Card.js';
 import FormValidator from '../components/FormValidator.js';
 import PopupWithForm from '../components/PopupWithForm.js';
@@ -153,24 +159,22 @@ const createCard = (data) => {
             },
 
             handleLikeClick: (id) => {
-                api.addLikeCard(id)
-                    .then((res) => {
-                        card.setLikes(res.likes);
-                    })
-                    .catch((err) => {
-                        console.log(`Ошибка: ${err}`);
-                    });
-            },
-
-            handleDeleteClick: (id) => {
-                api.deleteLikeCard(id)
-                    .then(res => {
-                        card.setLikes(res.likes)
-                        console.log(res)
-                    })
-                    .catch((err) => {
-                        console.log(`Ошибка: ${err}`)
-                    });
+                if ((card.isLiked())) {
+                    api.deleteLikeCard(id)
+                        .then(res => {
+                            card.setLikes(res.likes)
+                            console.log(res)
+                        })
+                        .catch((err) => console.log(`Ошибка: ${err}`));
+                } else {
+                    console.log('like');
+                    api.addLikeCard(id)
+                        .then(res => {
+                            card.setLikes(res.likes)
+                            console.log(res)
+                        })
+                        .catch((err) => console.log(`Ошибка: ${err}`));
+                }
             }
         },
         '.template');

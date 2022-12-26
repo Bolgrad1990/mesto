@@ -36,10 +36,24 @@ export default class Card {
         this._likeBtn.classList.add('list__symbol_active');
     }
 
+    setLikes(newLikes) {
+        this._likes = newLikes;
+        this._likeCountElement.textContent = this._likes.length;
+
+        if (this.isLiked()) {
+            this._addLikeCard();
+        }
+    }
     handleDelCard() {
         this._element.remove();
         this._element = null;
     };
+
+    isLiked() {
+        const handleLikedCard = this._likes.some(user => user._id === this._userId);
+        return handleLikedCard;
+    }
+
 
     _setEventListeners() {
 
@@ -60,40 +74,18 @@ export default class Card {
         });
     }
 
-    /*_disLike() {
+
+
+    _disLike() {
         this._removeLikeCard();
         this._handleLikeClick(this._id);
     }
     _like() {
         this._addLikeCard();
         this._handleLikeClick(this._id);
-    }*/
-
-
-    isLiked() {
-        const handleLikedCard = this._likes.some(user => user._id === this._userId);
-        return handleLikedCard;
-    }
-    _likeCard() {
-        if (this.isLiked()) {
-            this._addLikeCard();
-            this._handleLikeClick(this._id);
-        } else {
-            this._removeLikeCard();
-            this._handleLikeClick(this._id);
-        }
     }
 
-    setLikes(newLikes) {
-        this._likes = newLikes;
-        this._likeCountElement.textContent = this._likes.length;
-        this._likeCard();
 
-
-        if (this.isLiked()) {
-            this._addLikeCard();
-        }
-    }
 
     createCard() {
         this._element = this._getTemplate();
