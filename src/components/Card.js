@@ -25,10 +25,6 @@ export default class Card {
         return cardElement;
     }
 
-    getId() {
-        return this._id
-    }
-
     _removeLikeCard() {
         this._likeBtn.classList.remove('list__symbol_active');
     }
@@ -42,16 +38,19 @@ export default class Card {
 
         if (this.isLiked()) {
             this._addLikeCard();
+        } else {
+            this._removeLikeCard();
         }
     }
-    handleDelCard() {
-        this._element.remove();
-        this._element = null;
-    };
 
     isLiked() {
         const handleLikedCard = this._likes.some(user => user._id === this._userId);
         return handleLikedCard;
+    }
+
+    handleDelCard() {
+        this._element.remove();
+        this._element = null;
     }
 
 
@@ -66,24 +65,11 @@ export default class Card {
         })
 
         this._likeBtn.addEventListener('click', () => {
-            if (this._likeBtn.classList.contains('list__symbol_active')) {
-                this._disLike();
-            } else {
-                this._like()
-            }
+            this._handleLikeClick(this._id);
         });
     }
 
 
-
-    _disLike() {
-        this._removeLikeCard();
-        this._handleLikeClick(this._id);
-    }
-    _like() {
-        this._addLikeCard();
-        this._handleLikeClick(this._id);
-    }
 
 
 
